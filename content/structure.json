@@ -1,0 +1,58 @@
+{
+  "course": "Programmiertes Entwerfen I",
+  "semester": "Wintersemester 20XX/XX",
+  "student": "M. Musterman, M. Musterfrau & Peter Pan",
+  "teacher": "Prof. Benedikt Groß",
+  "school": "HfG Schwäbisch Gmünd",
+  "pages": {
+    "1": [
+      "1.png",
+      "text.txt",
+      "title.txt"
+    ],
+    "2": [
+      "1.png",
+      "1.txt",
+      "text.txt",
+      "title.txt"
+    ],
+    "3": [
+      "1.svg",
+      "1.txt",
+      "2.svg",
+      "2.txt",
+      "text.txt",
+      "title.txt"
+    ],
+    "4": [
+      "1.mp4",
+      "1.txt",
+      "2.txt",
+      "2.vimeo",
+      "text.txt",
+      "title.txt"
+    ],
+    "5": [
+      "1.js",
+      "1.txt",
+      "2.js",
+      "2.txt",
+      "text.txt",
+      "title.txt"
+    ],
+    "6": [
+      "1.js",
+      "1.txt",
+      "2.js",
+      "2.txt",
+      "text.txt",
+      "title.txt"
+    ],
+    "7": [
+      "1.txt",
+      "1.vimeo",
+      "text.txt",
+      "title.txt"
+    ]
+  }
+}
