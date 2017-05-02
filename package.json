@@ -7,6 +7,7 @@
     "start": "parallelshell 'npm run dev' 'npm run watch-content'",
     "dev": "budo . --open --live --watch-glob '{.,src,content}/**/*.{html,css,js,json}' -- -t babelify",
     "watch-content": "node lib/watch-content.js",
+    "bundle": "browserify ./src/app.js -o ./lib/bundle.js -t babelify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Benedikt Groß <bg@benedikt-gross.de>",
