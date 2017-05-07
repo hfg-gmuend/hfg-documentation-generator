@@ -13,6 +13,10 @@ var stickyStyle = {
 var Navigation = React.createClass({
   getDefaultProps: function () {
     return {
+      semester: 'SS 20XX',
+      teacher: 'Prof. XYZ',
+      course: 'Course Name',
+      student: 'Student Name',
       pages: [],
       currentPage: {},
       setCurrentPage: function() {}
@@ -30,9 +34,9 @@ var Navigation = React.createClass({
         var isChapter = page.content ? !/^\s/.test(page.content) : false; // startsWith space or tab?
         var isFocused = this.props.currentPage === page;
         var pageClasses = cx({
-          'color-green': isFocused,
-          'bold': isChapter,
-          'chapter-start': isChapter
+          'active': isFocused,
+          'chapter': isChapter,
+          'subchapter': !isChapter
         });
         return (
           <div key={page.pageName} className={pageClasses} onClick={this.handleClick.bind(this, page)}>{page.content.trim()}</div>
@@ -45,13 +49,18 @@ var Navigation = React.createClass({
 
   render: function () {
     return (
-      <div className="row">
-        <div id="left-col" className="col-xs-12 col-sm-2 col-lg-3 left-col">
-          <Sticky stickyStyle={stickyStyle}>
-            <div className="content-block">
-              {this.createMenuItems()}
-            </div>
-          </Sticky>
+      <div id="leftCol">
+        <div id="info">
+          <strong>{this.props.course}</strong><br />
+          {this.props.semester}<br />
+          {this.props.teacher}<br />
+          <br />
+          Dokumentation von<br />
+          <strong>{this.props.student}</strong>
+        </div>
+
+        <div id="nav">
+          {this.createMenuItems()}
         </div>
       </div>
     );

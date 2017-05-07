@@ -18,7 +18,7 @@ var PageItemCaption = React.createClass({
 
   render: function () {
     return (
-      <div className="col-sm-3 caption">
+      <div className="description">
         {this.createParagraphs()}
       </div>
     );

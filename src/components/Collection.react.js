@@ -58,7 +58,7 @@ var Collection = React.createClass({
 
   render: function () {
     return (
-      <div className="row">
+      <div id="content">
         {this.createPageItems()}
       </div>
     );

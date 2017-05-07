@@ -12,8 +12,8 @@ var PageItemImage = React.createClass({
 
   render: function () {
     return (
-      <div className="col-sm-6 middle-col col-sm-offset-3">
-        <img className="img-responsive" src={this.props.src} height="auto" width="auto" />
+      <div className="element">
+        <img src={this.props.src} />
       </div>
     );
   } 

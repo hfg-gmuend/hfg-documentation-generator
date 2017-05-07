@@ -18,7 +18,7 @@ var PageItemText = React.createClass({
 
   render: function () {
     return (
-      <div className="col-sm-6 middle-col col-sm-offset-3">
+      <div className="element paragraph">
         {this.createParagraphs()}
       </div>
     );

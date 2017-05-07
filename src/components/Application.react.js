@@ -144,19 +144,16 @@ var Application = React.createClass({
   render: function () {
     return (
       <div>
-        <Header
-          school={this.state.structure.school}
+        <Header />
+        <Navigation
           semester={this.state.structure.semester}
           teacher={this.state.structure.teacher}
           course={this.state.structure.course}
-          student={this.state.structure.student} />
-        <div className="container">
-          <Navigation
-            pages={this.state.pages}
-            currentPage={this.state.currentPage}
-            setCurrentPage={this.setCurrentPage} />
-          <Collection pageItems={this.state.currentPageContent} />
-        </div>
+          student={this.state.structure.student}
+          pages={this.state.pages}
+          currentPage={this.state.currentPage}
+          setCurrentPage={this.setCurrentPage} />
+        <Collection pageItems={this.state.currentPageContent} />
       </div>
     );
   }
