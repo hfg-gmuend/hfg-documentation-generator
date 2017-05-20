@@ -100,6 +100,7 @@ blockquote {
 #content {
 	width: 910px;
 	border-top: 1px solid #000000;
+	padding-bottom: 50px;
 }
 
 .paragraph {
@@ -109,6 +110,10 @@ blockquote {
 	-webkit-column-gap: 20px;
 	-moz-column-gap: 20px;
 	column-gap: 20px;
+}
+
+.paragraph div:first-child p {
+	margin-top: 0;
 }
 
 #content .element, #content .description, #content .paragraph{

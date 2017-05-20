@@ -79,7 +79,8 @@ var Application = React.createClass({
     var pageNames = _.keys(structure.pages);
     _.each(pageNames, function(pageName) {
       var pageItems = structure.pages[pageName];
-      _.each(pageItems, function(fileName, index) {
+      var sortedPageItems = that.sortPageItems(pageItems);
+      _.each(sortedPageItems, function(fileName, index) {
         allPageItems.push({
           pageName: pageName,
           subPageIndex: index,
@@ -115,6 +116,32 @@ var Application = React.createClass({
       if (err) done(err);
       else done(null, structure, results);
     });
+  },
+
+  sortPageItems: function(pageItems) {
+    var mainTextIndex = pageItems.indexOf('text.txt');
+
+    if(mainTextIndex > 0) {
+      pageItems.unshift(pageItems.splice(mainTextIndex, 1)[0]);
+      console.log(pageItems);
+    }
+
+    var lastPageItem = [];
+    var i = 0;
+
+    _.each(pageItems, function(pageItem) {
+      var fileParts = pageItem.split('.');
+      if(fileParts[0] == lastPageItem[0]) {
+        if(fileParts[1] != 'txt') {
+          pageItems.swap(i - 1, i);
+        }
+      }
+
+      lastPageItem = fileParts;
+      i++;
+    });
+
+    return pageItems;
   },
 
   typeFromFileName: function(fileName) {
@@ -158,5 +185,12 @@ var Application = React.createClass({
     );
   }
 });
+
+Array.prototype.swap = function (x, y) {
+  var b = this[x];
+  this[x] = this[y];
+  this[y] = b;
+  return this;
+}
 
 module.exports = Application;
