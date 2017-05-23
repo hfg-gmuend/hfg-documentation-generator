@@ -6,7 +6,7 @@ var mic;
 var fft;
 
 function setup() {
-  createCanvas(512, 256);
+  createCanvas(640, 256);
   noFill();
 
   mic = new p5.AudioIn();
