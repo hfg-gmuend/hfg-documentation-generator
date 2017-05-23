@@ -123,7 +123,6 @@ var Application = React.createClass({
 
     if(mainTextIndex > 0) {
       pageItems.unshift(pageItems.splice(mainTextIndex, 1)[0]);
-      console.log(pageItems);
     }
 
     var lastPageItem = [];
