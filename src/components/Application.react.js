@@ -3,6 +3,7 @@
 var _ = require('lodash');
 var async = require('async');
 var React = require('react');
+var swap = require('array-swap');
 
 var Header = require('./Header.react');
 var Navigation = require('./Navigation.react');
