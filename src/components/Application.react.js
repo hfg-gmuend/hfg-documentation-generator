@@ -20,6 +20,7 @@ var typesMap = [
   {type: 'CAPTION', extensions: ['txt']},
   {type: 'IMAGE', extensions: ['jpg', 'jpeg', 'gif', 'png', 'svg']},
   {type: 'P5', extensions: ['js']},
+  {type: 'HTML', extensions: ['html', 'htm']},
   {type: 'VIDEO', extensions: ['mp4']},
   {type: 'VIMEO', extensions: ['vimeo']},
 ];

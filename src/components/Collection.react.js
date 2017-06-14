@@ -7,6 +7,7 @@ var PageItemText = require('./PageItemText.react');
 var PageItemCaption = require('./PageItemCaption.react');
 var PageItemImage = require('./PageItemImage.react');
 var PageItemP5 = require('./PageItemP5.react');
+var PageItemHtml = require('./PageItemHtml.react');
 var PageItemVideo = require('./PageItemVideo.react');
 var PageItemVimeo = require('./PageItemVimeo.react');
 
@@ -34,6 +35,9 @@ var Collection = React.createClass({
             break;
           case 'P5':
             return (<PageItemP5 key={_.uniqueId()} content={item.content}/>);
+            break;
+          case 'HTML':
+            return (<PageItemHtml key={_.uniqueId()} src={item.path}/>);
             break;
           case 'VIDEO':
             return (<PageItemVideo key={_.uniqueId()} src={item.path}/>);

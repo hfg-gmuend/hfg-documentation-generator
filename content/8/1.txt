@@ -1,0 +1,7 @@
+Animierte Version, bei der man mit der x-Position der Maus die Periodendauer des Sinus beeinflussen kann.
+
+	for (var i=0;i<9;i++) {
+	  yPos+=Math.sin(winkel)*10;
+	  (...)
+	  winkel+=1/9*Math.PI*Mouse.x/600;
+	}
