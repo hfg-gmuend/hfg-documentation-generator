@@ -1,4 +1,4 @@
-HfG Documenation Generator
+HfG Documentation Generator
 ==========================
 
 Simple web documentation generator
