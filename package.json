@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "start": "parallelshell 'npm run dev' 'npm run watch-content'",
-    "dev": "budo src/app.js:lib/bundle.js --open --live --watch-glob '{.,src,content}/**/*.{html,css,js,json}' -- -t babelify",
+    "start": "parallelshell \"npm run dev\" \"npm run watch-content\"",
+    "dev": "budo src/app.js:lib/bundle.js --open --live --watch-glob \"{.,src,content}/**/*.{html,css,js,json}\" -- -t babelify",
     "watch-content": "node lib/watch-content.js",
     "bundle": "browserify ./src/app.js -o ./lib/bundle.js -t babelify",
     "test": "echo \"Error: no test specified\" && exit 1"
