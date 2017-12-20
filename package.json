@@ -10,7 +10,7 @@
     "bundle": "browserify ./src/app.js -o ./lib/bundle.js -t babelify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
- "engines": {
+  "engines": {
     "node": ">=8.0.0"
   },
   "author": "Benedikt Groß <bg@benedikt-gross.de>",
