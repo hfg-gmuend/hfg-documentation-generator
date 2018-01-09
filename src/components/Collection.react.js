@@ -10,7 +10,7 @@ var PageItemP5 = require('./PageItemP5.react');
 var PageItemHtml = require('./PageItemHtml.react');
 var PageItemVideo = require('./PageItemVideo.react');
 var PageItemVimeo = require('./PageItemVimeo.react');
-
+var PageItemYouTube = require('./PageItemYouTube.react');
 
 var Collection = React.createClass({
   getDefaultProps: function () {
@@ -44,17 +44,25 @@ var Collection = React.createClass({
             break;
           case 'VIMEO':
             var vimeoObject = JSON.parse(item.content);
-            // console.log(vimeoObject);
-            return (<PageItemVimeo 
+            return (<PageItemVimeo
               key={_.uniqueId()}
               vimeoId={vimeoObject['id']}
               width={vimeoObject['width']}
               height={vimeoObject['height']}
             />);
             break;
+          case 'YOUTUBE':
+           var youtubeObject = JSON.parse(item.content);
+            return (<PageItemYouTube
+              key={_.uniqueId()}
+              youtubeId={youtubeObject['id']}
+              width={youtubeObject['width']}
+              height={youtubeObject['height']}
+            />);
+            break;
         }
         return null;
-      }, 
+      },
       this // bind
     );
     return items;
@@ -66,7 +74,7 @@ var Collection = React.createClass({
         {this.createPageItems()}
       </div>
     );
-  } 
+  }
 });
 
 module.exports = Collection;

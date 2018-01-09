@@ -14,10 +14,10 @@ var PageItemHtml = React.createClass({
     console.log("render PageItemHtml");
     return (
       <div className="element">
-        <iframe src={this.props.src} scrolling="no"/>
+        <iframe src={this.props.src} scrolling="no" style={{height: 600 + 'px'}}/>
       </div>
     );
-  } 
+  }
 });
 
 module.exports = PageItemHtml;

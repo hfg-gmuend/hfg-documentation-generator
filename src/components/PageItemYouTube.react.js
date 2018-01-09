@@ -4,10 +4,10 @@ var _ = require('lodash');
 var React = require('react');
 
 
-var PageItemVimeo = React.createClass({
+var PageItemYouTube = React.createClass({
   getDefaultProps: function () {
     return {
-      vimeoId: "",
+      youtubeId: "",
       width: 600,
       height: 400
     };
@@ -24,8 +24,11 @@ var PageItemVimeo = React.createClass({
   },
 
   createUrl: function() {
-    var vimeoSrc = 'https://player.vimeo.com/video/'+ this.props.vimeoId;
-    return vimeoSrc;
+    var youtubeSrc = 'http://www.youtube.com/embed/'+ this.props.youtubeId;
+    console.log(this.props.youtubeId);
+    console.log(this.props);
+    console.log("this runs");
+    return youtubeSrc;
   },
 
   render: function () {
@@ -37,4 +40,4 @@ var PageItemVimeo = React.createClass({
   }
 });
 
-module.exports = PageItemVimeo;
+module.exports = PageItemYouTube;

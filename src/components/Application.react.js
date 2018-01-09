@@ -23,6 +23,7 @@ var typesMap = [
   {type: 'HTML', extensions: ['html', 'htm']},
   {type: 'VIDEO', extensions: ['mp4']},
   {type: 'VIMEO', extensions: ['vimeo']},
+  {type: 'YOUTUBE', extensions: ['youtube']},
 ];
 
 var Application = React.createClass({
@@ -96,7 +97,7 @@ var Application = React.createClass({
     // load content of all pageItems
     var reqests = _.map(allPageItems, function(pageItem){
       var path = './content/' + pageItem.pageName +'/'+ pageItem.fileName + '?nocache='+ new Date().getTime();
-      var shouldLoadContent = (pageItem.type !== 'IMAGE' || pageItem.type !== 'VIDEO' ||pageItem.type !== 'VIMEO');
+      var shouldLoadContent = (pageItem.type !== 'IMAGE' || pageItem.type !== 'VIDEO' || pageItem.type !== 'VIMEO' || pageItem.type !== 'YOUTUBE');
       pageItem.path = path;
       return function(cb){
         if (shouldLoadContent) {
