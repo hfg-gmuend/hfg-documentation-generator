@@ -7,7 +7,7 @@ Simple web documentation generator
 How to create a documentation
 -----------------------------
 
-* Install [node.js](https://nodejs.org/)
+* Install [node.js](https://nodejs.org/) (works only with Node 8.0.0 or higher)
 * Download this repository
 * Ceate a new folder somewhere on your harddrive e.g. `~/Desktop/my-documentation` (the documentation folder)
 * Open terminal and ...

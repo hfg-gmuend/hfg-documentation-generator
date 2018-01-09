@@ -2,11 +2,6 @@ Accatem quiatia sitions ectusda ndiaspellam etus cus excerup tasimus poratur?
 
 Musdam et quia vel is [example.net](http://example.net/) aliquatur?
 
-  * unordered list item
-
-  1.  ordered list item
-
-
 ** bold text ** and *italic text*
 
 > blockquote
