@@ -31,7 +31,7 @@ var PageItemYouTube = React.createClass({
   render: function () {
     return (
       <div className="element">
-        <iframe src={this.createUrl()} width={this.getLayoutWidth()} height={this.calcHeight()} allowFullScreen></iframe>
+        <iframe id="ytplayer" type="text/html" src={this.createUrl()} width={this.getLayoutWidth()} height={this.calcHeight()} allowFullScreen frameborder="0"></iframe>
       </div>
     );
   }
