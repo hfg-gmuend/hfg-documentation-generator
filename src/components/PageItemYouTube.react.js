@@ -25,9 +25,6 @@ var PageItemYouTube = React.createClass({
 
   createUrl: function() {
     var youtubeSrc = 'http://www.youtube.com/embed/'+ this.props.youtubeId;
-    console.log(this.props.youtubeId);
-    console.log(this.props);
-    console.log("this runs");
     return youtubeSrc;
   },
 
