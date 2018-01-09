@@ -22,7 +22,7 @@ How to create a documentation
 Supported media
 ---------------
 * TITLE (page titles): `title.txt`
-	If the title inside the file is prefixed with a TAB or SPACE character, then the title will be rendered in the navigation as a secondary page
+	If the title inside the file is prefixed with a TAB or SPACE character, then the title will be rendered as a secondary page in the navigation
 * TEXT (page main text): `text.txt`, main text of a sub page
 basic [markdown](https://en.wikipedia.org/wiki/Markdown#Example)
 * IMAGE (image files): `.jpg`, `.jpeg`, `.gif`, `.png`, `.svg`
@@ -50,7 +50,7 @@ basic [markdown](https://en.wikipedia.org/wiki/Markdown#Example)
 	}
 	```
 
-	"id" represents the YouTube ID of your video. Just copy the ID out of the URL (Your YouTube URL of the video should look similar to this: [https://www.youtube.com/watch?v=lw99zNF2GRI](https://www.youtube.com/watch?v=lw99zNF2GRI).
+	"id" represents the YouTube ID of your video. Just copy the ID out of the URL (Your YouTube URL of the video should look similar to this: [https://www.youtube.com/watch?v=lw99zNF2GRI](https://www.youtube.com/watch?v=lw99zNF2GRI) or this: [https://youtu.be/lw99zNF2GRI](https://youtu.be/lw99zNF2GRI).
 	Width and height represent the resolution of your video.
 
 
