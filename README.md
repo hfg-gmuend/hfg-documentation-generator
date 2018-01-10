@@ -70,4 +70,4 @@ Troubleshooting
 
 The latest version of Safari blocks autoplay by default. To change this setting, right click the address bar, choose "Settings for This Website..." and toggle the "Auto-Play" option like shown below
 
-![GIF](troubleshooting autoplay.gif)
+![GIF](troubleshooting-autoplay.gif)
