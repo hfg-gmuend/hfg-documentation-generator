@@ -67,5 +67,7 @@ TEXT and CAPTION, support basic [markdown](https://en.wikipedia.org/wiki/Markdow
 Troubleshooting
 ---------------
 **AUTOPLAYING DOES NOT WORK**
+
 The latest version of Safari blocks autoplay by default. To change this setting, right click the address bar, choose "Settings for This Website..." and toggle the "Auto-Play" option like shown below
+
 ![Alt Text](gifs/troubleshooting autoplay.gif)
