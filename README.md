@@ -39,6 +39,7 @@ basic [markdown](https://en.wikipedia.org/wiki/Markdown#Example)
 	```
 	"id" represents the Vimeo ID of your video. Just copy the ID out of the URL (Your Vimeo URL of the video should look similar to this: [https://vimeo.com/157991947](https://vimeo.com/157991947)).
 	Width and height represent the resolution of your video.
+	"autoplay" represents wether the player should autoplay videos or not. 0 means no autoplay, 1 means autoplay enabled.
 
 * YOUTUBE (online videos hosted on YouTube): `.youtube`, to embed videos from YouTube add a `.youtube` file with the following structure (note that the id has to be provided in quotes in order to work properly, in contrast to the Vimeo implementation):
 
@@ -46,12 +47,15 @@ basic [markdown](https://en.wikipedia.org/wiki/Markdown#Example)
 	{
 		"id": "lw99zNF2GRI",
 		"width": 1920,
-		"height": 1080
+		"height": 1080,
+		"autoplay": 1
 	}
 	```
 
 	"id" represents the YouTube ID of your video. Just copy the ID out of the URL (Your YouTube URL of the video should look similar to this: [https://www.youtube.com/watch?v=lw99zNF2GRI](https://www.youtube.com/watch?v=lw99zNF2GRI) or this: [https://youtu.be/lw99zNF2GRI](https://youtu.be/lw99zNF2GRI).
 	Width and height represent the resolution of your video.
+	"autoplay" represents wether the player should autoplay videos or not. 0 means no autoplay, 1 means autoplay enabled.
+	"loop" represents wether the player should loop videos or not. 0 means no loop, 1 means loop enabled.
 
 
 TEXT and CAPTION, support basic [markdown](https://en.wikipedia.org/wiki/Markdown#Example) syntax, to add e.g. hyperlink, bold text, italic text ... to your text

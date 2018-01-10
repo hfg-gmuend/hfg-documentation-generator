@@ -24,14 +24,22 @@ var PageItemYouTube = React.createClass({
   },
 
   createUrl: function() {
-    var youtubeSrc = 'http://www.youtube.com/embed/'+ this.props.youtubeId;
+    var youtubeSrc = 'http://www.youtube.com/embed/'+ this.props.youtubeId + '?';
+    if (this.props.autoplay == 1){
+      youtubeSrc = youtubeSrc + 'autoplay=1';
+    }
+    if (this.props.loop == 1){
+      youtubeSrc = youtubeSrc + '&loop=1&playlist=' + this.props.youtubeId;
+      console.log(youtubeSrc);
+    }
+
     return youtubeSrc;
   },
 
   render: function () {
     return (
       <div className="element">
-        <iframe id="ytplayer" type="text/html" src={this.createUrl()} width={this.getLayoutWidth()} height={this.calcHeight()} allowFullScreen frameborder="0"></iframe>
+        <iframe id="ytplayer" type="text/html" src={this.createUrl()} width={this.getLayoutWidth()} height={this.calcHeight()} allowFullScreen></iframe>
       </div>
     );
   }

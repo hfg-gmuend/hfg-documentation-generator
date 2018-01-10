@@ -49,15 +49,18 @@ var Collection = React.createClass({
               vimeoId={vimeoObject['id']}
               width={vimeoObject['width']}
               height={vimeoObject['height']}
+              autoplay={vimeoObject['autoplay']}
             />);
             break;
           case 'YOUTUBE':
            var youtubeObject = JSON.parse(item.content);
-            return (<PageItemYouTube
+           return (<PageItemYouTube
               key={_.uniqueId()}
               youtubeId={youtubeObject['id']}
               width={youtubeObject['width']}
               height={youtubeObject['height']}
+              autoplay={youtubeObject['autoplay']}
+              loop={youtubeObject['loop']}
             />);
             break;
         }

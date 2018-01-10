@@ -25,6 +25,9 @@ var PageItemVimeo = React.createClass({
 
   createUrl: function() {
     var vimeoSrc = 'https://player.vimeo.com/video/'+ this.props.vimeoId;
+    if (this.props.autoplay == 1){
+      vimeoSrc = vimeoSrc + '?autoplay=1';
+    }
     return vimeoSrc;
   },
 
