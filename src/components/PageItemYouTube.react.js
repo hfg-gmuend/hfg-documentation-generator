@@ -30,7 +30,6 @@ var PageItemYouTube = React.createClass({
     }
     if (this.props.loop == 1){
       youtubeSrc = youtubeSrc + '&loop=1&playlist=' + this.props.youtubeId;
-      console.log(youtubeSrc);
     }
 
     return youtubeSrc;

@@ -28,6 +28,9 @@ var PageItemVimeo = React.createClass({
     if (this.props.autoplay == 1){
       vimeoSrc = vimeoSrc + '?autoplay=1';
     }
+    if (this.props.loop == 1){
+      vimeoSrc = vimeoSrc + '&loop=1';
+    }
     return vimeoSrc;
   },
 

@@ -50,6 +50,7 @@ var Collection = React.createClass({
               width={vimeoObject['width']}
               height={vimeoObject['height']}
               autoplay={vimeoObject['autoplay']}
+              loop={vimeoObject['loop']}
             />);
             break;
           case 'YOUTUBE':
