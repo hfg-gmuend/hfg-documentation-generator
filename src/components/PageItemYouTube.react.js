@@ -4,10 +4,10 @@ var _ = require('lodash');
 var React = require('react');
 
 
-var PageItemVimeo = React.createClass({
+var PageItemYouTube = React.createClass({
   getDefaultProps: function () {
     return {
-      vimeoId: "",
+      youtubeId: "",
       width: 600,
       height: 400
     };
@@ -24,23 +24,24 @@ var PageItemVimeo = React.createClass({
   },
 
   createUrl: function() {
-    var vimeoSrc = 'https://player.vimeo.com/video/'+ this.props.vimeoId;
+    var youtubeSrc = 'http://www.youtube.com/embed/'+ this.props.youtubeId + '?';
     if (this.props.autoplay == 1){
-      vimeoSrc = vimeoSrc + '?autoplay=1';
+      youtubeSrc = youtubeSrc + 'autoplay=1';
     }
     if (this.props.loop == 1){
-      vimeoSrc = vimeoSrc + '&loop=1';
+      youtubeSrc = youtubeSrc + '&loop=1&playlist=' + this.props.youtubeId;
     }
-    return vimeoSrc;
+
+    return youtubeSrc;
   },
 
   render: function () {
     return (
       <div className="element">
-        <iframe src={this.createUrl()} width={this.getLayoutWidth()} height={this.calcHeight()} allowFullScreen></iframe>
+        <iframe id="ytplayer" type="text/html" src={this.createUrl()} width={this.getLayoutWidth()} height={this.calcHeight()} allowFullScreen></iframe>
       </div>
     );
   }
 });
 
-module.exports = PageItemVimeo;
+module.exports = PageItemYouTube;
