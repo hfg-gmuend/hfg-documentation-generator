@@ -1,0 +1,17 @@
+Title: Übung 1
+
+----
+
+Text: 
+
+Inhalt des Seminars Programmiertes Entwerfen 1 war die Betrachtung von Zeichenfolgen auf Basis der geometrischen Figuren Dreieck, Kreis und Quadrat, unter dem Einfluss wechselnder Parameter.
+
+(p5: sketch.js caption: Im folgenden werden Übungen aus dem Kurs vorgestellt. Ziel war eine sensibilisierung hin zu Parametrischer-Gestaltung.)
+
+```
+(sourcecode: sketch.js)
+```
+
+----
+
+Author: student

@@ -1,0 +1,91 @@
+.accordion.code {
+    // line numbering
+    code {
+        counter-reset: line;
+
+        table {
+            border-collapse: collapse;
+        }
+
+        tr {
+            td.line {
+                padding: 0 0 0 10px;
+            }
+
+            td.line-number {
+                padding: 0 5px 0 0;
+                color: #B6B6B6;
+                border-right: 1px solid;
+                line-height: inherit;
+                text-align: right;
+                white-space: nowrap;
+
+
+                &:before {
+                    counter-increment: line;
+                    content: counter(line);
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    .btn-link {
+        font-size: $code-collapse-font-size;
+        line-height: $code-collapse-line-height;
+
+        .circle {
+            display: inline-block;
+            position: relative;
+            width: $code-collapse-line-height;
+            height: $code-collapse-line-height;
+            border-radius: $code-collapse-line-height / 2; // or 50%/100%
+            margin-right: 1rem;
+            background-color: white;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto 30%;
+                height: 7.5%;
+                background-color: $primary;
+            }
+        }
+
+        &::after {
+            content: "hide code";
+            color: white;
+        }
+
+        &.collapsed {
+            .circle {
+                &::after, &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: $primary;
+                }
+                &::before{
+                    width: 7.5%;
+                    height: auto;
+                    margin: 30% auto;
+                }
+                &::after{
+                    margin: auto 30%;
+                    height: 7.5%;
+                }
+            }
+
+            &::after {
+                content: "show code";
+            }
+        }
+    }
+}

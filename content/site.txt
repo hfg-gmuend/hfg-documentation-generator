@@ -1,0 +1,5 @@
+Title: HfG Documentation Generator
+
+----
+
+Version: 1.0.0

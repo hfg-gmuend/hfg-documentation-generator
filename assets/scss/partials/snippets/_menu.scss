@@ -1,0 +1,30 @@
+.menu {
+    li.collapsible {
+        ul {
+            height: 0;
+            opacity: 0;
+            overflow: hidden;
+
+            transition: opacity 0.3s ease;
+        }
+
+        &.active > ul{
+            height: auto;
+            opacity: 1;
+            overflow: hidden;
+        }
+    }
+
+    a {
+        .arrow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-left: -1rem;
+        }
+
+        &.text-dark:hover, &.text-dark.active {
+            color: $primary !important;
+        }
+    }
+}

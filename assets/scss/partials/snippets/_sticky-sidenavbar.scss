@@ -1,0 +1,14 @@
+#sticky-sidenavbar {
+    position: absolute !important;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    will-change: min-height;
+
+    .sticky-sidenavbar-inner {
+        padding-left: 1rem;
+        transform: translate(0, 0); /* For browsers that don't support translate3d. */
+        transform: translate3d(0, 0, 0);
+        will-change: position, transform;
+    }
+}

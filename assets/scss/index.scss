@@ -1,0 +1,54 @@
+// Bootstrap
+@import "partials/bootstrap-overrides";
+@import "../vendor/bootstrap/scss/bootstrap";
+
+// IBM-Plex
+@import "partials/ibm-plex-overrides";
+
+// Hamburgers
+@import "partials/hamburgers-overrides";
+@import "../vendor/hamburgers/hamburgers";
+
+// Other imports
+@import "partials/variables";
+
+// Snippets
+@import "partials/snippets/code-accordion";
+@import "partials/snippets/footer";
+@import "partials/snippets/sticky-sidenavbar";
+@import "partials/snippets/menu";
+@import "partials/snippets/introduction";
+@import "partials/snippets/navbar";
+
+
+
+//----------- GLOBAL STYLES -----------
+a, .btn-link {
+    text-decoration: none !important;
+}
+
+blockquote {
+    > blockquote {
+        margin-left: 1rem;
+    }
+}
+
+.arrow-back {
+    height: 2rem;
+}
+
+.fill-primary {
+    fill: $primary;
+}
+
+.img-wrapper {
+    display: block;
+    position: relative;
+
+    img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+    }
+}

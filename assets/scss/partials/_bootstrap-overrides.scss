@@ -1,0 +1,32 @@
+// Grid
+$grid-columns: 11;
+$grid-gutter-width: 20px;
+
+
+// Colors
+$primary: #2221FF;
+
+
+// Fonts
+$font-family-sans-serif: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+$font-family-monospace: "IBM Plex Mono", "Menlo", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", Courier, monospace;
+
+$headings-line-height: 1.2 !important;
+
+.font-weight-semibold {
+    font-weight: 500 !important;
+}
+
+
+// Navbar
+$navbar-light-toggler-border-color: transparent;
+
+
+// Cards
+$card-spacer-x: 0;
+
+
+// Code
+pre {
+    margin: 0 !important;
+}

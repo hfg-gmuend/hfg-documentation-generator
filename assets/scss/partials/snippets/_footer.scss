@@ -1,0 +1,18 @@
+footer {
+    a {
+        .arrow {
+            transform: rotate(-90deg);
+        }
+
+        .arrow-rotate {
+            transform: rotate(90deg);
+            transition: transform .1s ease-in-out;
+        }
+
+        &:hover {
+            .arrow-rotate {
+                transform: rotate(0);
+            }
+        }
+    }
+}

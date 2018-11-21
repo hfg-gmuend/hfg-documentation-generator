@@ -1,0 +1,128 @@
+title: Documentation
+
+pages:
+    template: chapter
+
+fields:
+    title:
+        label: Title
+        type:  text
+        required: true
+
+    authors:
+        label: Author(s)
+        type:  structure
+        style: table
+        required: true
+        fields:
+            name:
+                label: Name
+                type:  text
+                required: true
+            website:
+                label: Portfolio
+                type:  url
+
+    course:
+        label: Course
+        type:  text
+        required: true
+
+    supervisors:
+        label: Supervisors
+        type:  tags
+        required: true
+
+    major:
+        label: Major
+        type:  select
+        required: true
+        default: IG
+        options:
+            IG:  IG
+            IoT: IoT
+            KG:  KG
+            PG:  PG
+            SG:  SG
+
+    semester:
+        label: Semester
+        type:  select
+        required: true
+        default: 1
+        options:
+            1: 1
+            2: 2
+            3: 3
+            4: 4
+            5: 5
+            5: 5
+            6: 6
+            7: 7
+            8: 8
+
+    description:
+        label: Description
+        type:  textarea
+
+    coverImage:
+        label: Cover Image
+        type:  image
+
+    line:
+        label: Cheatsheet
+        type:  line
+
+    text_info:
+        label: Block Elements
+        type:  info
+        text: >
+            **Important Text**
+
+            \(important)<br/>
+            Lorem ipsum dolor sit amet...<br/>
+            (endimportant)
+
+    tag_info:
+        label: Inline Tag Snippets
+        type:  info
+        text: >
+            **Vimeo video**
+
+            (vimeo&#58; https://vimeo.com/123809057 caption&#58; desc)
+
+
+            **YouTube video**
+
+            (youtube&#58; https://www.youtube.com/watch?v=E-GHh3tBOp8 caption&#58; desc)
+
+
+            **Local video**
+
+            (video&#58; videoname.mp4 caption&#58; desc) <a class="field-help marginalia" href="https://www.w3schools.com/tags/tag_video.asp" target="_blank" style="display&#58; inline; padding&#58; 0;">Supported video formats</a><br>
+            <span class="field-help marginalia" style="display&#58; inline; padding&#58; 0;">NOTE&#58; other videos with supported format and same videoname get automatically added as possible source (e.g. videoname.ogg). Additionally you can add a fallback image with the same name as the video (e.g. videoname.png) which will be shown on browsers that don't support the video tag.</span>
+
+
+            **Any video**
+
+            You can set the aspect ratio with (... **a-ratio&#58; 21by9 | 16by9 | 4by3 | 1by1**). <span class="field-help marginalia" style="display&#58; inline; padding&#58; 0;">default&#58; 16by9</span>
+
+
+            **Image**
+
+            (image&#58; example.jpg caption: desc link: http://example.com)
+
+            (image&#58; example.jpg caption: desc link: http://example.com **size&#58; big**) <span class="field-help marginalia" style="display&#58; inline; padding&#58; 0;">Optional sizes&#58; big, half</span>
+
+
+            **P5**
+
+            (p5&#58; sketch.js caption: desc)
+
+
+            **Sourcecode**
+
+            (sourcecode&#58; filename.ext) <span class="field-help marginalia" style="display&#58; inline; padding&#58; 0;">Returns file contents</span>
+
+
+            <a href="https://getkirby.com/docs/content/text" target="_blank" style="display&#58; inline; padding&#58; 0;">**Further documentation**</a>
