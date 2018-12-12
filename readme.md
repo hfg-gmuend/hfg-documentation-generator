@@ -16,14 +16,15 @@ The documentation generator aims to solve the typical student documentations nee
 * Double click `_start-php.command`. 
 * This will open "localhost:8000" in your browser ... you can start editing via `http://localhost:8000/panel`
 
-**Windows** (Should be something like the steps below)
+**Windows**
 
-* Install a webserver with PHP 5.4+ support
+Follow the [Installing Kirby on a PC](https://getkirby.com/docs/installation/on-a-pc) tutorial, then:
+
+
 * Download this repository
 * Unzip the package
-* Move the unpacked folder inside your webserver folder, e.g. "path-to-webserver/my-documentation"
-* Open the url of the webserver 
-* Start editing via "webserver-url/panel"
+* Move the unpacked folder inside your webserver folder, e.g. "C:\xampp\htdocs\"
+* Open the url `http://localhost` in your browser ... you can start editing via `http://localhost/panel`
 
 👩‍🎨 Supported media
 ------------------
