@@ -29,6 +29,14 @@ of the system, please check out http://getkirby.com/docs/advanced/options
 */
 
 
+//------------ Max Page Depth ------------
+// e.g when set to 3:
+//   - documentations
+//     - chapters
+//       - subchapters
+c::set("max_page_depth", 3);
+
+
 //------------ Enable Cache ------------
 c::set("cache", true);
 
@@ -39,8 +47,8 @@ c::set("smartypants", true);
 
 //------------ File Upload and Images ------------
 c::set("image.resize_on_upload", false);
-c::set("image.max_file_size", 1000000);	// in Byte
-c::set("image.widths", [480, 854, 1280, 1920, 2560]);	// NOTE: images wider than biggest defined image size and bigger than maximum defined image file size get resized when resize_on_upload is set
+c::set("image.max_file_size", 1000000); // in Byte
+c::set("image.widths", [480, 854, 1280, 1920, 2560]); // NOTE: images wider than biggest defined image size and bigger than maximum defined image file size get resized when resize_on_upload is set
 
 
 //------------ Video ------------
