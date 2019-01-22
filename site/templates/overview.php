@@ -7,7 +7,17 @@
         <?php if($site->hasVisibleChildren()): ?>
         <ul>
             <?php foreach($site->children()->visible() as $documentation): ?>
-                <li><a href="<?= $documentation->children()->visible()->first()->url() ?>"><?= $documentation->title() ?></a></li>
+                <li><?= $documentation->image($documentation->coverImage())->crop(300,300) ?>
+                    <a href="<?= $documentation->children()->visible()->first()->url() ?>">
+                    <div class="overview-caption">
+                        <h4 class="overview-title"><?= $documentation->title()->html() ?>
+                        </h4>
+                            <?php foreach($documentation->authors()->toStructure() as $auth): ?>
+                            <p class="overview-authors"><?= $auth->name() ?></p>
+                            <?php endforeach ?>
+                    </div>                   
+                        
+                </a></li>
             <?php endforeach ?>
         </ul>
         <?php else: ?>

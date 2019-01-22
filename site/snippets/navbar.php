@@ -3,15 +3,20 @@
 ?>
 
 <nav id="navbar" class="navbar navbar-expand-xl navbar-light shadow-sm bg-white p-3">
-    <a class="navbar-brand d-flex align-items-center text-dark" href="<?php if($is_overview == false && $page->parent()->children()->visible()->first()) echo $page->parent()->children()->visible()->first()->url(); ?>">
+    <a class="navbar-brand d-flex align-items-center text-dark" href="<?php if($is_overview == false && $page->parent()->children()->visible()->first()) echo $site->page("overview")->url(); ?>">
         <?php if($is_overview == false): ?>
             <div class="arrow-back mb-0 ml-md-3">
                 <?= file_get_contents(kirby()->roots()->assets() . "/images/ios-arrow-back.svg"); ?>
             </div>
         <?php endif ?>
         <h5 class="ml-3 mb-0">
+            <?php if($is_overview == false): ?>
             <?= $page->parent()->title()->html() ?><br>
             <small class="text-muted"><?= $page->parent()->course()->html() ?></small>
+            <?php else: ?>
+            <?= $page->title()->html() ?><br>
+            <?php endif ?>
+
         </h5>
     </a>
     <?php if($is_overview == false): ?>
