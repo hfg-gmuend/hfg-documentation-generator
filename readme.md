@@ -18,7 +18,7 @@ The documentation generator aims to solve the typical student documentations nee
 
 **Windows**
 
-* Install and start a local server like [XAMPP](https://www.apachefriends.org/) that supports the latest PHP version.
+* Install and start a local Apache server like [XAMPP](https://www.apachefriends.org/) that supports PHP 7.1+.
 * Download this repository
 * Unzip the package
 * Move the unpacked folder inside your webserver folder, e.g. "C:\xampp\htdocs\"
