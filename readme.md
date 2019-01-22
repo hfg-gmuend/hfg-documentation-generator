@@ -18,13 +18,12 @@ The documentation generator aims to solve the typical student documentations nee
 
 **Windows**
 
-Follow the [Installing Kirby on a PC](https://getkirby.com/docs/installation/on-a-pc) tutorial, then:
-
-
+* Install and start a local server like [XAMPP](https://www.apachefriends.org/) that supports the latest PHP version.
 * Download this repository
 * Unzip the package
 * Move the unpacked folder inside your webserver folder, e.g. "C:\xampp\htdocs\"
-* Open the url `http://localhost` in your browser ... you can start editing via `http://localhost/panel`
+* You may rename the folder "hfg-documentation-generator-master" to something shorter, e.g. "my-documentation"
+* Open the url `http://localhost/my-documentation` in your browser ... you can start editing via `http://localhost/my-documentation/panel`
 
 👩‍🎨 Supported media
 ------------------
