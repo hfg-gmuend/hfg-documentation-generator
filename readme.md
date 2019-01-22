@@ -18,10 +18,10 @@ The documentation generator aims to solve the typical student documentations nee
 
 **Windows**
 
-* Install and start a local Apache server like [XAMPP](https://www.apachefriends.org/) that supports PHP 7.1+.
+* Install and start a local Apache server like [MAMP](https://www.mamp.info/de/downloads/) that supports PHP 7.1+. XAMPP would be an alternative, but doesn't seem to support all needed PHP features.
 * Download this repository
 * Unzip the package
-* Move the unpacked folder inside your webserver folder, e.g. "C:\xampp\htdocs\"
+* Move the unpacked folder inside your webserver folder, e.g. "C:\MAMP\htdocs\"
 * You may rename the folder "hfg-documentation-generator-master" to something shorter, e.g. "my-documentation"
 * Open the url `http://localhost/my-documentation` in your browser ... you can start editing via `http://localhost/my-documentation/panel`
 
