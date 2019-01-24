@@ -9,4 +9,6 @@ firstname: Student
 lastname: ""
 email: ""
 history:
+  - >
+    my-documenation-hfg/tech-showcase/uebung-1
   - my-documenation-hfg
