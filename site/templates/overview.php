@@ -7,17 +7,28 @@
         <?php if($site->hasVisibleChildren()): ?>
         <ul id="overview-list">
             <?php foreach($site->children()->visible() as $documentation): ?>
-                <li>
-                    <?php if($imageMain = $documentation->image($documentation->coverImage())): ?>
-                        <img srcset="<?= $imageMain->url(); ?> 1x, <?= $imageMain->url(); ?> 2x"; ?> 
-                    <?php endif ?>
-                    <a href="<?= $documentation->children()->visible()->first()->url() ?>">
+                <li><a href="<?= $documentation->children()->visible()->first()->url() ?>">
+                    <?php
+                    $cover = $documentation->coverImage()->toFile();
+                    if ($cover) {
+                        $_size1x = 300;
+                        $_size2x = $_size1x * 2;
+                        $_src1x = $cover->resize(null, $_size1x, 90);
+                        $_src2x = $cover->resize(null, $_size2x, 85);
+                        echo html::img($_src1x->url(), array(
+                        'srcset' => $_src1x->url().' 1x, '.$_src2x->url().' 2x',
+                        ));
+                    }
+                    ?>
+
                     <div class="overview-caption">
                         <h4 class="overview-title"><?= $documentation->title()->html() ?>
                         </h4>
-                            <?php foreach($documentation->authors()->toStructure() as $auth): ?>
-                            <p class="overview-authors"><?= $auth->name() ?></p>
+                        <p class="overview-authors">
+                            <?php foreach($documentation->authors()->toStructure() as $key=>$auth): ?>
+                                <?= $auth->name() ?><?php if($key < $auth->count() - 1): ?>,<?php endif ?>
                             <?php endforeach ?>
+                        </p>
                     </div>                   
                         
                 </a></li>
