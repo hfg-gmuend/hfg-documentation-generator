@@ -7,7 +7,10 @@
         <?php if($site->hasVisibleChildren()): ?>
         <ul id="overview-list">
             <?php foreach($site->children()->visible() as $documentation): ?>
-                <li><?= $documentation->image($documentation->coverImage())->crop(300,300) ?>
+                <li>
+                    <?php if($imageMain = $documentation->image($documentation->coverImage())): ?>
+                        <img srcset="<?= $imageMain->url(); ?> 1x, <?= $imageMain->url(); ?> 2x"; ?> 
+                    <?php endif ?>
                     <a href="<?= $documentation->children()->visible()->first()->url() ?>">
                     <div class="overview-caption">
                         <h4 class="overview-title"><?= $documentation->title()->html() ?>

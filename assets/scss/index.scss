@@ -53,12 +53,27 @@ blockquote {
     }
 }
 
-ul#overview-list > li {
-    width: 33.33%;
-    float: left;
-    list-style-type: none;
+ul#overview-list {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+        width: 33.33%;
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        padding-right: 60px;
+        align-content: baseline;
 
-    .overview-caption {
-        max-width: 300px;
+        .overview-caption {
+            max-width: 300px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
     }
 }
