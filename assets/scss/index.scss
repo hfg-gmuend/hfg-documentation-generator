@@ -64,16 +64,52 @@ ul#overview-list {
         padding-right: 60px;
         align-content: baseline;
 
-        .overview-caption {
-            max-width: 300px;
-        }
+        // .overview-caption {
+        //     max-width: 300px;
+        // }
 
         img {
             max-width: 100%;
-            height: 100%;
-            max-height: 300px;
+            height: 300px;
             object-fit: cover;
             margin-bottom: 1rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .container {
+        max-width: 1440px;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .container {
+        max-width: 100%;
+    }
+
+    ul#overview-list {
+        li {
+            width: 50%;
+            margin-bottom: 3rem;
+            img, a {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    ul#overview-list {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        padding: 0rem 1rem;
+        li {
+            width: 100%;
+            padding-right: 0;
+            img {
+                height: initial;
+            }
         }
     }
 }
