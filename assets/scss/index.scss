@@ -52,3 +52,13 @@ blockquote {
         left: 0;
     }
 }
+
+ul#overview-list > li {
+    width: 33.33%;
+    float: left;
+    list-style-type: none;
+
+    .overview-caption {
+        max-width: 300px;
+    }
+}
