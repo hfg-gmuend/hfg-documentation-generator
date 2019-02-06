@@ -25,8 +25,8 @@
                         <h4 class="overview-title"><?= $documentation->title()->html() ?>
                         </h4>
                         <p class="overview-authors">
-                            <?php foreach($documentation->authors()->toStructure() as $key=>$auth): ?>
-                                <?= $auth->name() ?><?php if($key < $auth->count() - 1): ?>,<?php endif ?>
+                            <?php foreach($authors = $documentation->authors()->toStructure() as $key=>$auth): ?>
+                                <?= $auth->name() ?><?php if($key < $authors->count() - 1): ?>,<?php endif ?>
                             <?php endforeach ?>
                         </p>
                     </div>                   

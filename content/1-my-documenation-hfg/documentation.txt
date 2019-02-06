@@ -5,13 +5,14 @@ Title: My Documenation @ HfG
 Authors: 
 
 - 
-  title: Jennifer Piperek
-  website: http://example.com/
   name: Maxim Muster
-- 
-  title: Leonard Weigand
   website: http://example.com/
+- 
   name: Peter Pan
+  website: http://example.com/
+- 
+  name: Susi Sorglos
+  website: ""
 
 ----
 
