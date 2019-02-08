@@ -25,12 +25,16 @@
                         <h4 class="overview-title"><?= $documentation->title()->html() ?>
                         </h4>
                         <p class="overview-authors">
-                            <?php foreach($authors = $documentation->authors()->toStructure() as $key=>$auth): ?>
-                                <?= $auth->name() ?><?php if($key < $authors->count() - 1): ?>,<?php endif ?>
-                            <?php endforeach ?>
+                            <?php
+                            $authors= array();
+                            foreach($documentation->authors()->toStructure() as $key => $author) {
+                              array_push($authors, $author->name()->toString());
+                            }
+                            echo implode(", ", $authors);
+                            ?>
                         </p>
-                    </div>                   
-                        
+                    </div>
+
                 </a></li>
             <?php endforeach ?>
         </ul>
