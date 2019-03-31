@@ -19,8 +19,9 @@ kirbytext::$tags["image"] = array(
         "size"
     ),
     "html" => function($tag) {
-
         $url     = $tag->attr("image");
+        $width   = $tag->attr("width");
+        $height  = $tag->attr("height");
         $alt     = $tag->attr("alt");
         $title   = $tag->attr("title");
         $link    = $tag->attr("link");
@@ -128,65 +129,14 @@ kirbytext::$tags["image"] = array(
 
         };
 
-        // image builder
-        $_image = function($class) use($file, $tag, $url, $alt, $title) {
-            // create all image sizes if they don't exist and generate srcset and sizes attributes
-            $definedSizes = c::get("image.widths");
-            $srcset = "";
-            $sizes  = "";
-
-            // only build responsive image if file and sizes are defined
-            if($file && $definedSizes) {
-                // resize image according to all defined sizes and generate srcset and sizes attributes
-                foreach($definedSizes as $i => $size) {
-                    if($i != 0) {
-                        $srcset .= ", ";
-                        $sizes .= ", ";
-                    }
-
-                    // resize image if size is smaller than image width else add original image as last responsive image source
-                    if($size < $file->width()) {
-                        // call resize function which only resizes image if there isn't already a resized version and get url
-                        $currentUrl = $file->resize($size)->url();
-
-                        // add url and image query to srcset and sizes
-                        $srcset .= $currentUrl . " " . $size . "w";
-                        $sizes  .= "(max-width: " . $size . "px) " . $size . "px";
-                    } else {
-                        // add url and image query to srcset and sizes
-                        $srcset .= $url . " " . $file->width() . "w";
-                        $sizes  .= $file->width() . "px";
-                        break;
-                    }
-                }
-
-                // if image is wider than maximum defined size also add original image size to srcset and sizes
-                if(max($definedSizes) < $file->width()) {
-                    $srcset .= ", " . $url . " " . $file->width() . "w";
-                    $sizes  .= ", " . $file->width() . "px";
-                }
-
-                // change image url to the url of the smallest image
-                $url = $file->resize(min($definedSizes))->url();
-            }
-
-
-            return html::img($url, array(
-                "width"  => $tag->attr("width"),
-                "height" => $tag->attr("height"),
-                "class"  => $class,
-                "title"  => $title,
-                "alt"    => $alt,
-                "srcset" => $srcset,
-                "sizes"  => $sizes
-            ));
-        };
-
         if(kirby()->option("kirbytext.image.figure") or !empty($caption)) {
-            $image = $_link($_image($tag->attr("imgclass", "img-fluid")));
+            // if file wasn't found return simple image else build responsive image
+            if(!$file) {
+                $image = $_link(html::img($url, array("alt" => $alt)));
+            } else {
+                $image = $_link($file->genResponsiveImage($tag->attr("imgclass", "img-fluid"), $width, $height, $url, $alt, $title));
 
-            // if image file was found add img-wrapper to avoid jumpy website when images get loaded
-            if($file) {
+                // if image file was found add img-wrapper to avoid jumpy website when images get loaded
                 $image_wrapper = new Brick("div");
                     $image_wrapper->addClass("img-wrapper");
                     // add padding based on aspect ratio
@@ -212,7 +162,15 @@ kirbytext::$tags["image"] = array(
             return $container;
         } else {
             $class = trim($tag->attr("class") . " " . ($tag->attr("imgclass", "img-fluid")));
-            return $_link($_image($class));
+
+            // if file wasn't found return simple image else build responsive image
+            if(!$file) {
+                $image = $_link(html::img($url, array("alt" => $alt)));
+            } else {
+                $image = $_link($file->genResponsiveImage($class, $width, $height, $url, $alt, $title));
+            }
+
+            return $image;
         }
 
     }

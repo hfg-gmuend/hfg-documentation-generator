@@ -37,23 +37,23 @@ kirby()->hook("panel.page.update", function($page, $oldPage) {
 kirby()->hook("panel.file.upload", "resizeImage");
 kirby()->hook("panel.file.replace", "resizeImage");
 
-// autoresize images on upload if they are to wide and their file size exceeds the defined limit
+// create image thumbs for responsiveness (as defined in config) and also resizes the uploaded
+// base image if it exceeds the file size limit defined in the config
 function resizeImage($file) {
+    // only resize if resize_on_upload is activated and file is image
+    if(c::get("image.resize_on_upload") !== true || $file->type() !== "image") return $file;
+
     try {
-        if(c::get("image.resize_on_upload") == true) {
-            // check file type, dimensions and filesize
-            if ($file->type() == "image" && $file->width() > max(c::get("image.widths")) && $file->size() > c::get("image.max_file_size")) {
-                // get the original file path
-                $originalPath = $file->dir() . "/" . $file->filename();
+        // build responsive image so thumbs get generated
+        $fileSize = $file->size();
+        $file->genResponsiveImage();
 
-                // create a thumb and get its path
-                $resizedImage = $file->resize(max(c::get("image.widths")));
-                $resizedPath  = $resizedImage->dir() . "/" . $resizedImage->filename();
-
-                // replace the original image with the resized one
-                copy($resizedPath, $originalPath);
-                unlink($resizedPath);
-            }
+        // notify if base image has been resized because it exceeded filesize limit
+        if($fileSize != $file->size()) {
+            panel()->alert("Image has been resized!
+                            To guarantee quality upload images which don't
+                            exceed the filesize limit of " . f::niceSize(c::get("image.max_file_size")) . "!");
+            panel()->redirect("/");
         }
     } catch (Exception $e) {
         echo $e->getMessage();

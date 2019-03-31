@@ -46,9 +46,10 @@ c::set("smartypants", true);
 
 
 //------------ File Upload and Images ------------
-c::set("image.resize_on_upload", false);
-c::set("image.max_file_size", 1000000); // in Byte
-c::set("image.widths", [480, 854, 1280, 1920, 2560]); // NOTE: images wider than biggest defined image size and bigger than maximum defined image file size get resized when resize_on_upload is set
+// NOTE: if you change one of these settings clear your thumbs folder
+c::set("image.resize_on_upload", true);
+c::set("image.max_file_size", 1048576); // in Byte
+c::set("image.widths", [480, 1280, 2560, 3840]); // NOTE: images wider than biggest defined image size and bigger than maximum defined image file size get resized when resize_on_upload is set
 
 
 //------------ Video ------------
