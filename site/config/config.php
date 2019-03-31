@@ -79,6 +79,7 @@ c::set("columnify.elements", [
     "blockquote",
     "code-accordion",
     "div.embed-gist",
+    "audio",
 
     "div.image.default",
     "div.image.big"        => [
