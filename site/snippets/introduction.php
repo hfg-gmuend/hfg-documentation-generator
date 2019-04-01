@@ -44,7 +44,7 @@
 
     <!-- Cover Image -->
     <div class="row">
-        <?php if($page->parent()->coverImage() && $page->parent()->coverImage()->isNotEmpty()): ?>
+        <?php if($page->parent()->coverImage() && $page->parent()->coverImage()->isNotEmpty() && $page->parent()->coverImage()->toFile()): ?>
             <div class="col-11 col-md-10 offset-md-1 col-lg-7">
                 <?= kirbytag(array("image" => $page->parent()->coverImage()->toFile()->url())) ?>
             </div>

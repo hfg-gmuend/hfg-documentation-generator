@@ -36,3 +36,14 @@ page::$methods["setPreviousImageSize"] = function($page, $newImageSize) use(&$pr
 
     return $previousImageSize;
 };
+
+
+// does same as $page->nextVisible(), but works with staticbuilder
+page::$methods["nextVisibleStaticFix"] = function($page) {
+    if(!defined("STATIC_BUILD")) return $page->nextVisible();
+
+    $pageNum  = $page->num();
+    $siblings = $page->siblings(false)->visible();
+
+    return $siblings->findBy("num", $pageNum + 1);
+};

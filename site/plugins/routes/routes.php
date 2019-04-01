@@ -15,7 +15,7 @@ kirby()->routes(array(
         }
     ),
     array(
-        "pattern" => "(:any)",
+        "pattern" => "^(?!staticbuilder)(:any)",
         "action" => function($uri) {
             // redirect to first chapter of documentation if baseUrl/documentationName/ is called else don't redirect
             if($uri !== "overview" && (site()->page($uri) && site()->page($uri)->children()->visible()->first())) {
