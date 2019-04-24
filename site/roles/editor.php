@@ -12,7 +12,7 @@ return [
         "panel.user.create" => false,
         "panel.user.delete" => false,
         "panel.page.read"   => function() {
-            return $this->target()->page()->id() !== "error" && $this->target()->page()->id() !== "overview";
+            return $this->target()->page()->id() !== "error";
         },
         "panel.page.create" => function() {
             return $this->target()->page() ? $this->target()->page()->depth() < c::get("max_page_depth") : false;
