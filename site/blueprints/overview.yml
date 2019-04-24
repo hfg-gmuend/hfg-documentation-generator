@@ -1,1 +1,52 @@
 title: Overview
+
+fields:
+    title:
+        label: Title
+        type:  text
+        required: true
+
+    title:
+        label: Title
+        type:  text
+        required: true
+
+    major:
+        label: Major
+        type:  select
+        required: true
+        default: IG
+        options:
+            Interaktionsgestaltung:  IG
+            Internet der Dinge: IoT
+            Kommunikationsgestaltung:  KG
+            Produktgestaltung:  PG
+            Strategische Gestaltung :  SG
+        width: 1/2
+
+    course:
+        label: Kurs
+        type:  text
+        required: true
+        width: 1/2
+
+    description:
+        label: Beschreibung
+        type:  text
+        required: true
+        width: 1/2
+
+    supervisors:
+        label: Supervisors
+        type:  tags
+        required: true
+        width: 1/2
+
+        title:
+            label: Title
+            type:  text
+            width: 2/3
+
+    text:
+        label: Briefing
+        type:  textarea
