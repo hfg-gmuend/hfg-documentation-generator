@@ -30,11 +30,10 @@
       </div>
 
   </div>
-
         <!-- Side Info -->
-
+        <div class="col-11 overview-container">
         <?php if($site->hasVisibleChildren()): ?>
-        <ul class="row"id="overview-list">
+        <ul id="overview-list">
             <?php foreach($site->children()->visible() as $documentation): ?>
                 <li ><a href="<?= $documentation->children()->visible()->first()->url()?>">
                     <?php
@@ -49,7 +48,6 @@
                         ));
                     }
                     ?>
-
                     <div class="overview-caption">
                         <h4 class="overview-title"><?= $documentation->title()->html() ?>
                         </h4>
@@ -67,6 +65,7 @@
                 </a></li>
             <?php endforeach ?>
         </ul>
+        </div>
 
 <div id="row2" class="row my-4 flex-column-reverse flex-md-row">
   <div id="briefing" class="col-11 col-md-6 offset-md-1 col-lg-7 offset-lg-1 col-xl-6 offset-xl-1">
