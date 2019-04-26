@@ -20,8 +20,8 @@
                 </div>
 
                 <div class="col-10 col-md-9 col-lg-8 col-xl-7 text-primary">
-                    <h2 class="d-none d-md-block mb-0 pt-2 pt-lg-3 pb-2 pb-lg-3"><?= $nextPage->is( $site->page("overview") ) ? "Zurück zur Projektübersicht" : ($nextPage->is( $page->parent()->children()->visible()->first() ) ? "Zurück zum Anfang" : $nextPage->title()) ?></h2>
-                    <h3 class="d-block d-md-none mb-0 pt-2 pt-lg-3 pb-2 pb-lg-3"><?= $nextPage->is( $site->page("overview") ) ? "Zurück zur Projektübersicht" : ($nextPage->is( $page->parent()->children()->visible()->first() ) ? "Zurück zum Anfang" : $nextPage->title()) ?></h3>
+                    <h2 class="d-none d-md-block mb-0 pt-2 pt-lg-3 pb-2 pb-lg-3"><?= $nextPage->is( $site->page("overview") ) ? "Back to Overview Projects" : ($nextPage->is( $page->parent()->children()->visible()->first() ) ? "Back to Start" : $nextPage->title()) ?></h2>
+                    <h3 class="d-block d-md-none mb-0 pt-2 pt-lg-3 pb-2 pb-lg-3"><?= $nextPage->is( $site->page("overview") ) ? "Back to Overview Projects" : ($nextPage->is( $page->parent()->children()->visible()->first() ) ? "Back to Start" : $nextPage->title()) ?></h3>
                 </div>
 
             </a>
