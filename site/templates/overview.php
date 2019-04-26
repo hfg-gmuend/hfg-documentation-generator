@@ -25,7 +25,7 @@
                     <?= $supervisor ?><br>
                 <?php endforeach ?>
                 <hr align="left" class="d-md-none ml-0"><br>
-                <a class="link-briefing" href="#briefing"><span class="mr-1">&#8595;</span> zum Briefing</a>
+                <a class="link-briefing" href="#briefing"><span class="mr-1">&#8595;</span>Briefing</a>
             </div>
       </div>
 
@@ -70,11 +70,11 @@
 <div id="row2" class="row my-4 flex-column-reverse flex-md-row">
   <div id="briefing" class="col-11 col-md-6 offset-md-1 col-lg-7 offset-lg-1 col-xl-6 offset-xl-1">
     <h5>Briefing</h5>
-    <p name="briefing"><?= $page->text()->kirbytext() ?></p>
+    <div name="briefing" class="important font-weight-semibold"><?= $page->text()->kirbytext() ?></div>
   </div>
 
   <div class="col-11 col-md-3 col-lg-2 offset-md-1 pull-right">
-          <a class="link-briefing" name="b-jump" href="#s-jump"><span class="mr-1">&#8593;</span> zur Übersicht</a>
+          <a class="link-briefing" name="b-jump" href="#s-jump"><span class="mr-1">&#8593;</span>Overview</a>
   </div>
 </div>
         <?php else: ?>
