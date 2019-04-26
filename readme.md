@@ -3,7 +3,7 @@ HfG Documentation Generator
 
 Simple web documentation generator based on [Kirby CMS](https://getkirby.com/).
 
-The documentation generator aims to solve the typical student documentations needs of courses at the HfG Schwäbisch Gmünd.
+The documentation generator aims to solve the typical student documentation needs of courses at the HfG Schwäbisch Gmünd.
 
 🤖 How to create a documentation
 --------------------------------
@@ -14,6 +14,7 @@ The documentation generator aims to solve the typical student documentations nee
 * Unzip the package
 * Move the unpacked folder somewhere on your hard drive, e.g. "~/Desktop/my-documentation"
 * Double click `_start-php.command`. 
+* (You might have to give permission to [open an app from an unidentified developer](https://support.apple.com/kb/ph25088?locale=en_US))
 * This will open "localhost:8000" in your browser ... you can start editing via `http://localhost:8000/panel`
 
 **Windows**
