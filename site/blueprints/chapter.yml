@@ -56,7 +56,7 @@ fields:
 
             (image&#58; example.jpg caption: desc link: http://example.com)
 
-            (image&#58; example.jpg caption: desc link: http://example.com **size&#58; big**) <span class="field-help marginalia" style="display&#58; inline; padding&#58; 0;">Optional sizes&#58; big, half</span>
+            (image&#58; example.jpg caption: desc link: http://example.com **size&#58; big**) <span class="field-help marginalia" style="display&#58; inline; padding&#58; 0;">Optional sizes&#58; big, half, quarter</span>
 
             (image&#58; example.jpg **link: self**) <span class="field-help marginalia" style="display&#58; inline; padding&#58; 0;">Makes the image clickable for zooming</span>
 

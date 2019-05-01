@@ -11,31 +11,61 @@ page::$methods["getUniqueCodeAccordionID"] = function() use(&$code_accordion_cou
 
 
 
-//------------ Half Sized Image Layout Algorithm Utils ------------
-$image_tag_count = -1;
+//------------ Small Sized Image Layout Algorithm Utils ------------
+$imageTagCount = -1;
 
-// returns current image tag index. If reset is set image_tag_count gets reset back to -1
-page::$methods["getCurrentImageTagID"] = function($page, $reset = false) use(&$image_tag_count) {
-    if($reset != true) $image_tag_count++;
-    else $image_tag_count = -1;
+// returns current image tag index
+page::$methods["getCurrentImageTagID"] = function($page) use(&$imageTagCount) {
+    $imageTagCount++;
 
-    return $image_tag_count;
+    return $imageTagCount;
+};
+
+// resets imageTagCount back to -1
+page::$methods["resetCurrentImageTagID"] = function($page) use(&$imageTagCount) {
+    $imageTagCount = -1;
 };
 
 
-$previousImageSize = "";
+$imageList = null;
 
-// returns previous image size
-page::$methods["getPreviousImageSize"] = function($page) use(&$previousImageSize) {
-    return $previousImageSize;
+// returns current image list and generates it if it wasn't already. The image list contains
+// all image sizes in the page text and a flag if image is directly followed by
+// another image of the same size
+page::$methods["getCurrentImageList"] = function($page) use(&$imageList) {
+    // generate new imageList if it isn't currently defined
+    if($imageList === null) {
+        // fetch all image tags in page text
+        $pageText = $page->text();
+
+        preg_match_all("/\(image:.*?\)/", $pageText, $matches, PREG_OFFSET_CAPTURE);
+        $images = $matches[0];
+
+        // add sizes of all found images to imageList and flag if image is directly followed
+        // by another image with same size
+        $imageList = [];
+
+        foreach($images as $image) {
+            // fetch defined size in image tag. If no size was defined size = default
+            preg_match("/size:\s*(?P<size>[^\s|\)]*)/", $image[0], $matches);
+            $size = array_key_exists("size", $matches) ? $matches["size"] : "default";
+
+            // check if image is directly followed by another image with same size
+            $endOfImgRow = preg_match("/^\s*?\(image:.*?\)/", substr($pageText, $image[1] + strlen($image[0]))) == 0;
+
+            // add size and endOfImgRow flag to imageList
+            array_push($imageList, ["size" => $size, "endOfImgRow" => $endOfImgRow]);
+        }
+    }
+
+    return $imageList;
 };
 
-// sets previous image size and returns it
-page::$methods["setPreviousImageSize"] = function($page, $newImageSize) use(&$previousImageSize) {
-    $previousImageSize = $newImageSize;
-
-    return $previousImageSize;
+// resets image list to null
+page::$methods["resetCurrentImageList"] = function($page) use(&$imageList) {
+    $imageList = null;
 };
+
 
 
 // does same as $page->nextVisible(), but works with staticbuilder

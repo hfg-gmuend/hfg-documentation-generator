@@ -12,7 +12,8 @@
             <?php endif ?>
             <?php endforeach ?>
         </div>
-        <div class="<?= c::get("columnify.default")["placeholder_class"] ?>"><!-- PLACEHOLDER COLUMN --></div>
+        <div class="<?= c::get("columnify.default")["placeholder_classes"][0] ?>"><!-- PLACEHOLDER COLUMN --></div>
+        <div class="<?= c::get("columnify.default")["placeholder_classes"][1] ?>"><!-- PLACEHOLDER COLUMN --></div>
     </div>
 
     <div class="row my-4 flex-column-reverse flex-md-row">

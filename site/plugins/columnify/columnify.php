@@ -60,18 +60,28 @@ field::$methods["columnify"] = function($field) {
             // replace previous element with new wrapped element
             $doc->replaceChild($container, $match["node"]);
 
-            // add placeholder column
-            $placeholderColumn = $doc->createElement("div");
-                // set placeholder column class, if element has own class definition use it else use default class definition
-                if(isset($columnifingElements[$match["key"]]) && isset($columnifingElements[$match["key"]]["placeholder_class"])) {
-                    $placeholderColumn->setAttribute("class", $columnifingElements[$match["key"]]["placeholder_class"]);
-                } else {
-                    $placeholderColumn->setAttribute("class", c::get("columnify.default")["placeholder_class"]);
-                }
-                $placeholderColumn->appendChild($doc->createComment("PLACEHOLDER COLUMN"));
+            // get for element defined placeholder classes
+            $placeholderClasses = "";
+            if(isset($columnifingElements[$match["key"]]) && isset($columnifingElements[$match["key"]]["placeholder_classes"])) {
+                // skip element if placeholder shouldn't be set
+                if($columnifingElements[$match["key"]]["placeholder_classes"] === false) continue;
 
-            // insert placeholder column after container
-            $doc->insertBefore($placeholderColumn, $container->nextSibling);
+                $placeholderClasses = $columnifingElements[$match["key"]]["placeholder_classes"];
+                $placeholderClasses = is_array($placeholderClasses) ? $placeholderClasses : [$placeholderClasses];
+            } else {
+                $placeholderClasses = c::get("columnify.default")["placeholder_classes"];
+                $placeholderClasses = is_array($placeholderClasses) ? $placeholderClasses : [$placeholderClasses];
+            }
+
+            // add placeholder column(s)
+            foreach(array_reverse($placeholderClasses) as $placeholderClass) {
+                $placeholderColumn = $doc->createElement("div");
+                    $placeholderColumn->setAttribute("class", $placeholderClass);
+                    $placeholderColumn->appendChild($doc->createComment("PLACEHOLDER COLUMN"));
+
+                // insert placeholder column after container
+                $doc->insertBefore($placeholderColumn, $container->nextSibling);
+            }
         }
 
         // get html as string and replace field with it
