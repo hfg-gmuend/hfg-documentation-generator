@@ -6,7 +6,8 @@ const types = {"image":["jpeg","jpg","jpe","gif","png","svg","ico","tif","tiff",
 // value -> type of tag
 const draggableDefs = {
     "js":    "p5",
-    "video": "video"
+    "video": "video",
+    "audio": "mp3"
 }
 
 // update draggable definition of each item

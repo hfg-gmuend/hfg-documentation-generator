@@ -3,7 +3,8 @@
 // value -> type of tag
 const draggableDefs = {
     "js":    "p5",
-    "video": "video"
+    "video": "video",
+    "audio": "mp3"
 }
 
 // update draggable definition of each item
