@@ -6,7 +6,7 @@
   <div id="row" class="row my-4 flex-column-reverse flex-md-row">
       <div class="col-11 col-md-6 offset-md-1 col-lg-7 offset-lg-1 col-xl-6 offset-xl-1">
           <h2 class="d-none d-sm-block "><?= $page->major() ?>  – <?= $page->course() ?></h2>
-          <h1 class="d-none d-sm-block "><?= $page->title() ?></h1>
+          <h1 class="d-none d-sm-block "><?= $page->courseTitle() ?></h1>
           <?php foreach($page->parent()->authors()->toStructure() as $author): ?>
           <?php if($author->website()->isNotEmpty()): ?>
               <a class="font-weight-bold" href="<?= $author->website()->url() ?>" target="_blank"><span class="mr-1">&#8594;</span><?= $author->name()->html() ?></a>

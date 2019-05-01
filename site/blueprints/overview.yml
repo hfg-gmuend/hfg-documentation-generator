@@ -1,7 +1,7 @@
 title: Overview
 
 fields:
-    title:
+    courseTitle:
         label: Course Title
         type:  text
         required: true
