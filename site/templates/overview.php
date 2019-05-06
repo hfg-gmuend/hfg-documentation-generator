@@ -4,7 +4,7 @@
             <a name="s-jump"></a>
 
   <div id="row" class="row my-4 flex-column-reverse flex-md-row">
-      <div class="col-11 col-md-6 offset-md-1 col-lg-7 offset-lg-1 col-xl-6 offset-xl-1">
+      <div class="col-11 col-sm-11 col-md-6 offset-md-1 col-lg-7 offset-lg-1 col-xl-6 offset-xl-1">
           <h2 class="d-none d-sm-block "><?= $page->major() ?>  – <?= $page->course() ?></h2>
           <h1 class="d-none d-sm-block "><?= $page->title() ?></h1>
           <?php foreach($page->parent()->authors()->toStructure() as $author): ?>
@@ -31,9 +31,9 @@
 
   </div>
         <!-- Side Info -->
-        <div class="col-11 overview-container">
+        <div class="col-12 overview-container">
         <?php if($site->hasVisibleChildren()): ?>
-        <ul id="overview-list">
+        <ul class="col-10"id="overview-list">
             <?php foreach($site->children()->visible() as $documentation): ?>
                 <li ><a href="<?= $documentation->children()->visible()->first()->url()?>">
                     <?php
