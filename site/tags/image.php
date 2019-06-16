@@ -110,7 +110,7 @@ kirbytext::$tags["image"] = array(
 
             // get number of images of same size directly occuring before current image without break in text
             $previousImageCount = 0;
-            for($i = $currentID - 1; $i > 0; $i--) {
+            for($i = $currentID - 1; $i >= 0; $i--) {
                 if($imageList[$i]["size"] !== $tag->attr("size") || $imageList[$i]["endOfImgRow"]) break;
                 $previousImageCount++;
             }
