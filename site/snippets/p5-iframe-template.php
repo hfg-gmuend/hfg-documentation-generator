@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <?= js("assets/vendor/p5/p5.min.js") ?>
-    <?= js("assets/vendor/p5/addons/p5.dom.min.js") ?>
     <?= js("assets/vendor/p5/addons/p5.sound.min.js") ?>
+    <?= js("assets/vendor/matter.js/matter.min.js") ?>
     <?php if($file_exists == true) echo js($url) ?>
     <style>
         body {
