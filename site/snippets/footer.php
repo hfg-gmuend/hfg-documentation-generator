@@ -1,8 +1,11 @@
+<?php
+    $parent = $page->parent() ?: site();
+?>
     <footer role="contentinfo">
-        <?php $nextPage = $page->nextVisibleStaticFix() ?: ($site->hasVisibleChildren() > 1 ? $site->page("overview") : $page->parent()->children()->visible()->first()) ?>
+        <?php $nextPage = $page->nextListedStaticFix() ?: ($site->children()->listed()->count() != 1 ? $site->page("overview") : $parent->children()->listed()->first()) ?>
 
         <div class="container ml-0">
-            <a class="row" href="<?= $nextPage ? $nextPage->url() : "" ?>">
+            <a class="row btn-link" href="<?= $nextPage ? $nextPage->url() : "" ?>">
                 <div class="col-11 col-md-10 col-lg-9 col-xl-8 offset-md-1">
                     <div class="border-top border-primary"></div>
                 </div>
@@ -14,14 +17,14 @@
                             <?= file_get_contents(kirby()->roots()->assets() . "/images/ios-arrow-back.svg"); ?>
                         </div>
                     <?php else: ?>
-                        <h2 class="d-none d-md-block mx-auto mb-0 pt-2 pt-lg-3 pb-2 pb-lg-3 align-self-center text-primary <?= !$nextPage->is( $page->parent()->children()->visible()->first() ) ? "arrow-rotate" : "arrow" ?>">&#8594;</h2>
-                        <h3 class="d-block d-md-none mx-auto mb-0 pt-2 pt-lg-3 pb-2 pb-lg-3 align-self-center text-primary <?= !$nextPage->is( $page->parent()->children()->visible()->first() ) ? "arrow-rotate" : "arrow" ?>">&#8594;</h3>
+                        <h2 class="d-none d-md-block mx-auto mb-0 pt-2 pt-lg-3 pb-2 pb-lg-3 align-self-center text-primary <?= !$nextPage->is( $parent->children()->listed()->first() ) ? "arrow-rotate" : "arrow" ?>">&#8594;</h2>
+                        <h3 class="d-block d-md-none mx-auto mb-0 pt-2 pt-lg-3 pb-2 pb-lg-3 align-self-center text-primary <?= !$nextPage->is( $parent->children()->listed()->first() ) ? "arrow-rotate" : "arrow" ?>">&#8594;</h3>
                     <?php endif ?>
                 </div>
 
                 <div class="col-10 col-md-9 col-lg-8 col-xl-7 text-primary">
-                    <h2 class="d-none d-md-block mb-0 pt-2 pt-lg-3 pb-2 pb-lg-3"><?= $nextPage->is( $site->page("overview") ) ? "Back to Overview Projects" : ($nextPage->is( $page->parent()->children()->visible()->first() ) ? "Back to Start" : $nextPage->title()) ?></h2>
-                    <h3 class="d-block d-md-none mb-0 pt-2 pt-lg-3 pb-2 pb-lg-3"><?= $nextPage->is( $site->page("overview") ) ? "Back to Overview Projects" : ($nextPage->is( $page->parent()->children()->visible()->first() ) ? "Back to Start" : $nextPage->title()) ?></h3>
+                    <h2 class="d-none d-md-block mb-0 pt-2 pt-lg-3 pb-2 pb-lg-3"><?= $nextPage->is( $site->page("overview") ) ? "Back to Overview Projects" : ($nextPage->is( $parent->children()->listed()->first() ) ? "Back to Start" : $nextPage->title()) ?></h2>
+                    <h3 class="d-block d-md-none mb-0 pt-2 pt-lg-3 pb-2 pb-lg-3"><?= $nextPage->is( $site->page("overview") ) ? "Back to Overview Projects" : ($nextPage->is( $parent->children()->listed()->first() ) ? "Back to Start" : $nextPage->title()) ?></h3>
                 </div>
 
             </a>

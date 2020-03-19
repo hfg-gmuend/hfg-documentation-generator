@@ -2,18 +2,10 @@
 
 <main id="main" role="main">
             <a name="s-jump"></a>
-
   <div id="row" class="row my-4 flex-column-reverse flex-md-row">
       <div class="col-11 col-sm-11 col-md-6 offset-md-1 col-lg-7 offset-lg-1 col-xl-6 offset-xl-1">
           <h2 class="d-none d-sm-block "><?= $page->major() ?>  – <?= $page->course() ?></h2>
           <h1 class="d-none d-sm-block "><?= $page->courseTitle() ?></h1>
-          <?php foreach($page->parent()->authors()->toStructure() as $author): ?>
-          <?php if($author->website()->isNotEmpty()): ?>
-              <a class="font-weight-bold" href="<?= $author->website()->url() ?>" target="_blank"><span class="mr-1">&#8594;</span><?= $author->name()->html() ?></a>
-          <?php else: ?>
-              <span class="mr-1">&#8594;</span><?= $author->name()->html() ?></br>
-          <?php endif ?>
-          <?php endforeach ?>
       </div>
 
       <div id="meta" class="col-11 col-md-3 col-lg-2 offset-md-1 pull-right">
@@ -25,17 +17,22 @@
                     <?= $supervisor ?><br>
                 <?php endforeach ?>
                 <hr align="left" class="d-md-none ml-0"><br>
-                <a class="link-briefing" href="#briefing"><span class="mr-1">&#8595;</span>Briefing</a>
+                <a class="btn-link link-briefing" href="#briefing"><span class="mr-1">&#8595;</span>Briefing</a>
             </div>
       </div>
 
   </div>
         <!-- Side Info -->
         <div class="col-12 overview-container">
-        <?php if($site->hasVisibleChildren()): ?>
+        <?php if($site->hasListedChildren()): ?>
         <ul class="col-10"id="overview-list">
-            <?php foreach($site->children()->visible() as $documentation): ?>
-                <li ><a href="<?= $documentation->children()->visible()->first()->url()?>">
+            <?php
+                // get all documentations with listed chapters
+                $filteredDocumentations = $site->children()->listed()->filter(function($page) {
+                    return $page->intendedTemplate()->name() === "documentation" && $page->hasListedChildren();
+                });
+                foreach($filteredDocumentations as $documentation): ?>
+                <li ><a class="btn-link" href="<?= $documentation->children()->listed()->first()->url()?>">
                     <?php
                     $cover = $documentation->coverImage()->toFile();
                     if ($cover) {
@@ -43,9 +40,9 @@
                         $_size2x = $_size1x * 2;
                         $_src1x = $cover->resize(null, $_size1x, 90);
                         $_src2x = $cover->resize(null, $_size2x, 85);
-                        echo html::img($_src1x->url(), array(
-                        'srcset' => $_src1x->url().' 1x, '.$_src2x->url().' 2x',
-                        ));
+                        echo html::img($_src1x->url(), [
+                            'srcset' => $_src1x->url().' 1x, '.$_src2x->url().' 2x',
+                        ]);
                     }
                     ?>
                     <div class="overview-caption">
@@ -53,9 +50,9 @@
                         </h4>
                         <p class="overview-authors">
                             <?php
-                            $authors= array();
-                            foreach($documentation->authors()->toStructure() as $key => $author) {
-                              array_push($authors, $author->name()->toString());
+                            $authors = [];
+                            foreach($documentation->authors()->toUsers() as $author) {
+                              array_push($authors, $author->firstName()->toString() . " " . $author->lastName()->toString());
                             }
                             echo implode(", ", $authors);
                             ?>
@@ -74,7 +71,7 @@
   </div>
 
   <div class="col-11 col-md-3 col-lg-2 offset-md-1 pull-right">
-          <a class="link-briefing" name="b-jump" href="#s-jump"><span class="mr-1">&#8593;</span>Overview</a>
+          <a class="btn-link link-briefing" name="b-jump" href="#s-jump"><span class="mr-1">&#8593;</span>Overview</a>
   </div>
 </div>
         <?php else: ?>

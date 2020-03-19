@@ -1,0 +1,47 @@
+label: Inline Tag Snippets
+type:  info
+text: >
+  **Vimeo video**
+
+  (vimeo&#58; https://vimeo.com/123809057 caption&#58; desc)
+
+
+  **YouTube video**
+
+  (youtube&#58; https://www.youtube.com/watch?v=E-GHh3tBOp8 caption&#58; desc)
+
+
+  **Local video**
+
+  (video&#58; videoname.mp4 caption&#58; desc) <a class="field-help marginalia" href="https://www.w3schools.com/tags/tag_video.asp" target="_blank" style="display&#58; inline; padding&#58; 0;">Supported video formats</a><br>
+  <span class="field-help marginalia" style="display&#58; inline; padding&#58; 0;">NOTE&#58; other videos with supported format and same videoname get automatically added as possible source (e.g. videoname.ogg). Additionally you can add a fallback image with the same name as the video (e.g. videoname.png) which will be shown on browsers that don't support the video tag.</span>
+
+
+  **Any video**
+
+  You can set the aspect ratio with (... **a-ratio&#58; 21by9 | 16by9 | 4by3 | 1by1**). <span class="field-help marginalia" style="display&#58; inline; padding&#58; 0;">default&#58; 16by9</span>
+
+
+  **Image**
+
+  (image&#58; example.jpg caption: desc link: http://example.com)
+
+  (image&#58; example.jpg caption: desc link: http://example.com **size&#58; big**) <span class="field-help marginalia" style="display&#58; inline; padding&#58; 0;">Optional sizes&#58; big, half, quarter</span>
+
+
+  **P5**
+
+  (p5&#58; sketch.js caption: desc)
+
+
+  **Mp3**
+
+  (mp3&#58; sound.mp3)
+
+
+  **Sourcecode**
+
+  (sourcecode&#58; filename.ext) <span class="field-help marginalia" style="display&#58; inline; padding&#58; 0;">Returns file contents</span>
+
+
+  <a href="https://getkirby.com/docs/guide/content/text-formatting" target="_blank" style="display&#58; inline; padding&#58; 0;">**Further documentation**</a>

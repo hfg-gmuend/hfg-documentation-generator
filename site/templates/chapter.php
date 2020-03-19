@@ -1,10 +1,9 @@
 <?php snippet("header") ?>
 
     <main id="main" role="main">
-
         <div class="container ml-md-0 my-3 my-md-5">
             <!-- PAGE CONTENT -->
-            <?php if($page->is($page->parent()->children()->visible()->first())) snippet("introduction") ?>
+            <?php if($page->is($page->parent()->children()->listed()->first())) snippet("introduction") ?>
 
                 <!-- CHAPTER WRAPPER -->
                 <div id="chapter-wrapper" class="position-relative">

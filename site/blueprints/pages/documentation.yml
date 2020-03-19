@@ -1,0 +1,69 @@
+title: Documentation
+
+columns:
+  - width: 1/3
+    sections:
+      chapters: sections/chapters
+      files:    sections/files
+
+  - width: 2/3
+      fields:
+        authors:
+          label:    Author(s)
+          type:     users
+          required: true
+          query:    kirby.users.filterBy("role", "editor")
+
+        supervisors:
+          label:    Supervisors
+          type:     tags
+          min:      1
+          required: true
+
+        major:
+          label:    Major
+          type:     select
+          required: true
+          default:  IG
+          options:
+            IG:  IG
+            IoT: IoT
+            KG:  KG
+            PG:  PG
+            SG:  SG
+
+
+        semester:
+          label:    Semester
+          type:     select
+          required: true
+          default:  "1"
+          options:
+            "1": "1"
+            "2": "2"
+            "3": "3"
+            "4": "4"
+            "5": "5"
+            "6": "6"
+            "7": "7"
+            "8": "8"
+
+        description:
+          label: Description
+          type:  textarea
+
+        coverImage:
+          label:    Cover Image
+          type:     files
+          query:    page.images
+          multiple: false
+
+        line:
+          label: Cheatsheet
+          type:  line
+
+        textInfo:
+          extends: fields/text-info
+
+        tagInfo:
+          extends: fields/tag-info

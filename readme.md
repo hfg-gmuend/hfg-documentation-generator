@@ -28,7 +28,7 @@ The documentation generator aims to solve the typical student documentation need
 
 👩‍🎨 Supported media
 ------------------
-You will write and edit your content in [Kirby Markdown](https://getkirby.com/docs/content/text). Supported media: videos, Vimeo videos, YouTube videos, p5.js sketches, text, images and images with captions.
+You will write and edit your content in [Kirby Markdown](https://getkirby.com/docs/guide/content/text-formatting). Supported media: videos, Vimeo videos, YouTube videos, p5.js sketches, text, images and images with captions.
 
 🌍 Hosting documentations online
 --------------------------------
@@ -36,6 +36,14 @@ In case you want to have a documentation online under your own domain ... please
 
 1. [Buy](https://getkirby.com/buy) your own Kirby license
 2. Delete the default "student" user (site/accounts/student.php) and create your own user.
+
+🔧 Dependencies
+--------------------------------
+* PHP 7.2+
+* [PHP mbstring extension](https://www.php.net/manual/de/mbstring.installation.php)
+* [PHP dom extension](https://www.php.net/manual/de/book.dom.php)
+* [PHP GD extension](https://www.php.net/manual/de/book.image.php)
+* [PHP IMAP extension](https://www.php.net/manual/de/book.imap.php)
 
 ❤️ Thanks
 ---------

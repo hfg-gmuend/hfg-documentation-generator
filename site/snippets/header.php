@@ -1,3 +1,6 @@
+<?php
+    $parent = $page->parent() ?: site();
+?>
 <!doctype html>
 <html lang="<?= site()->language() ? site()->language()->code() : "en" ?>">
 <head>
@@ -5,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title><?= $page->parent()->title()->html() ?> | <?= $page->title()->html() ?></title>
+    <title><?= $parent->title()->html() ?> | <?= $page->title()->html() ?></title>
     <meta name="description" content="<?= $site->description()->html() ?>">
 
     <!-- CSS -->

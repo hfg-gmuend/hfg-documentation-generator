@@ -3,14 +3,14 @@
 
 //------------ Smooth scrolling to anchor points ------------
 document.querySelectorAll("a[href^=\"#\"]").forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
+    anchor.addEventListener("click", e => {
         e.preventDefault();
 
         // check if navbar is fixed. If it is return navbar height else 0
         let navbarCompensation = document.getElementById("main").style.paddingTop ? parseInt(document.getElementById("main").style.paddingTop) : 0;
 
         window.scrollTo({
-            top: document.querySelector(this.getAttribute("href")).getBoundingClientRect().top + window.scrollY - navbarCompensation,
+            top: document.querySelector(anchor.getAttribute("href")).getBoundingClientRect().top + window.scrollY - navbarCompensation,
             behavior: "smooth"
         });
     });
@@ -99,9 +99,20 @@ function resizeP5iframes(iframes) {
 }
 
 function resizeP5iframe(iframe) {
+    // trigger refresh of iframe by updating src attribute on first resize (on load)
+    // to fix bad caching on firefox
+    if(iframe.getAttribute("data-triggered_refresh_by_source_update") !== "true") iframe.src = iframe.src;
+    iframe.setAttribute("data-triggered_refresh_by_source_update", "true");
+
+    // set iframe height to 0 to guarantee that scrollHeight is correct
+    iframe.style.height = "0";
+
     // get html element inside iframe
     let innerDoc = iframe.contentDocument || iframe.contentWindow.document;
     iframe.closest(".embed-responsive").style.height = innerDoc.body.scrollHeight + "px";
+
+    // set iframe height back to 100%
+    iframe.style.height = "100%";
 }
 
 // check if iframes already finished loading before this js code executed and resize them
@@ -111,8 +122,8 @@ if(window.loadedP5iframes !== undefined) window.loadedP5iframes.forEach(iframe =
 
 //------------ Scrollspy ------------
 var scrollSpyElement = document.getElementById("chapter-content");
-var scrollSpyTarget = document;
-var scrollSpyOffset = document.getElementById("navbar").offsetHeight + 5;
+var scrollSpyTarget  = document;
+var scrollSpyOffset  = document.getElementById("navbar").offsetHeight + 5;
 var scrollSpy = new ScrollSpy(scrollSpyElement, {
     target: scrollSpyTarget,
     offset: scrollSpyOffset

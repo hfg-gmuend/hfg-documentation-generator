@@ -1,123 +1,135 @@
 <?php
+/**
+ * The config file is optional. It accepts a return array with config options
+ * Note: Never include more than one return statement, all options go within this single return array
+ * In this example, we set debugging to true, so that errors are displayed onscreen. 
+ * This setting must be set to false in production.
+ * All config options: https://getkirby.com/docs/reference/system/options
+ */
 
-/*
+ return [
+    //------------ Home ------------
+    "home" => "overview",
 
----------------------------------------
-License Setup
----------------------------------------
-
-Please add your license key, which you've received
-via email after purchasing Kirby on http://getkirby.com/buy
-
-It is not permitted to run a public website without a
-valid license key. Please read the End User License Agreement
-for more information: http://getkirby.com/license
-
-*/
-
-c::set("license", "put your license key here");
-/*
-
----------------------------------------
-Kirby Configuration
----------------------------------------
-
-By default you don't have to configure anything to
-make Kirby work. For more fine-grained configuration
-of the system, please check out http://getkirby.com/docs/advanced/options
-
-*/
+    //------------ Max Page Depth ------------
+    // e.g when set to 3:
+    //   - documentations
+    //     - chapters
+    //       - subchapters
+    "max_page_depth" => 3,
 
 
-//------------ Max Page Depth ------------
-// e.g when set to 3:
-//   - documentations
-//     - chapters
-//       - subchapters
-c::set("max_page_depth", 3);
+    //------------ Enable Cache ------------
+    "cache" => true,
 
 
-//------------ Enable Cache ------------
-c::set("cache", true);
+    //------------ Smartypants ------------
+    "smartypants" => true,
 
 
-//------------ Smartypants ------------
-c::set("smartypants", true);
-
-
-//------------ File Upload and Images ------------
-// NOTE: if you change one of these settings clear your thumbs folder
-c::set("image.resize_on_upload", true);
-c::set("image.max_file_size", 1048576); // in Byte
-c::set("image.widths", [480, 1280, 2560, 3840]); // NOTE: images wider than biggest defined image size and bigger than maximum defined image file size get resized when resize_on_upload is set
-c::set("image.images_per_row", [
-    "half"    => 2,
-    "quarter" => 4
-]);
-
-
-//------------ Video ------------
-c::set("kirbytext.video.class", "embed-responsive-item");
-
-
-//------------ Sourcecode Tag ------------
-c::set("sourcecode.max_file_size", 10000); // in Byte
-
-
-//------------ Columnify Plugin ------------
-c::set("columnify.default", [
-    "element_class"     => "col offset-md-1 offset-lg-2  offset-xl-2",
-    "placeholder_classes" => [
-        "d-none d-lg-block col-lg-1 col-xl-3",
-        "w-100"
-    ]
-]);
-
-// define elements that should be columnified and define their element and placeholder class, if only element name is defined default classes are chosen
-c::set("columnify.elements", [
-    "p.important"          => [
-        "element_class"     => "col-11 col-md-10 col-lg-8 offset-lg-1 col-xl-6 offset-xl-1 lead font-weight-semibold",
-        "placeholder_classes" => "d-none d-md-block col-md-1 col-lg-2 col-xl-4"
+    //------------ File Upload and Images ------------
+    // NOTE: if you change one of these settings clear your thumbs folder
+    "image" => [
+        "resize_on_upload" => true,
+        "max_file_size"    => 1048576, // in Byte
+        "widths"           => [480, 1280, 2560, 3840], // NOTE: images wider than biggest defined image size and bigger than maximum defined image file size get resized when resize_on_upload is set
+        "images_per_row"   => [
+            "half"    => 2,
+            "quarter" => 4
+        ],
     ],
-    "p",
-    "hr",
-    "ul",
-    "ol",
-    "figure",
-    "blockquote",
-    "code-accordion",
-    "div.embed-gist",
-    "audio",
 
-    "div.image.default",
-    "div.image.big"        => [
-        "element_class"     => "col-11 col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-8 offset-xl-1",
-        "placeholder_classes" => "d-none d-xl-block col-xl-2"
-    ],
-    "div.image.first" => [
-        "element_class"     => "col-11 col-md-5 col-lg offset-md-1 offset-xl-1",
-        "placeholder_classes" => false
-    ],
-    "div.image.between.even" => [
-        "element_class"     => "col-11 col-md-5 col-lg offset-md-1 offset-lg-0",
-        "placeholder_classes" => false
-    ],
-    "div.image.between" => [
-        "element_class"     => "col-11 col-md-5 col-lg",
-        "placeholder_classes" => false
-    ],
-    "div.image.last.even" => [
-        "element_class"     => "col-11 col-md-5 col-lg offset-md-1 offset-lg-0",
-        "placeholder_classes" => [
-            "d-none d-xl-block col-xl-2",
-            "w-100"
+
+    //------------ Video ------------
+    "kirbytext" => [
+        "video" => [
+            "class" => "embed-responsive-item"
         ]
     ],
-    "div.image.last" => [
-        "element_class"     => "col-11 col-md-5 col-lg",
-        "placeholder_classes" => [
-            "d-none d-xl-block col-xl-2",
-            "w-100"
+
+
+    //------------ Sourcecode Tag ------------
+    "sourcecode" => [
+        "max_file_size" => 10000, // in Byte
+    ],
+
+
+    //------------ Custom File DragTexts ------------
+    // List of elements for which the dragText should be customized
+    // key   -> file extension or kirby defined file type NOTE: file extension gets checked before file type
+    // value -> type of tag
+    // A list of supported file types can be found here: https://getkirby.com/docs/guide/content/files#example-page-with-files__supported-file-types
+    "customFileDragTexts" => [
+        "js"    => "p5",
+        "video" => "video",
+        "audio" => "mp3",
+        "image" => "image"
+    ],
+
+
+    //------------ Panel ------------
+    "panel" => [
+        "language" => "de",
+        "install"  => true
+    ],
+
+
+    //------------ Columnify Plugin ------------
+    "columnify" => [
+        "default" => [
+            "element_class"     => "col offset-md-1 offset-lg-2  offset-xl-2",
+            "placeholder_classes" => [
+                "d-none d-lg-block col-lg-1 col-xl-3",
+                "w-100"
+            ]
+        ],
+        // define elements that should be columnified and define their element and placeholder class, if only element name is defined default classes are chosen
+        "elements" => [
+            "p.important"          => [
+                "element_class"     => "col-11 col-md-10 col-lg-8 offset-lg-1 col-xl-6 offset-xl-1 lead font-weight-semibold",
+                "placeholder_classes" => "d-none d-md-block col-md-1 col-lg-2 col-xl-4"
+            ],
+            "p",
+            "hr",
+            "ul",
+            "ol",
+            "figure",
+            "blockquote",
+            "code-accordion",
+            "div.embedded-gist",
+            "audio",
+
+            "div.image.default",
+            "div.image.big"        => [
+                "element_class"       => "col-11 col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-8 offset-xl-1",
+                "placeholder_classes" => "d-none d-xl-block col-xl-2"
+            ],
+            "div.image.first" => [
+                "element_class"       => "col-11 col-md-5 col-lg offset-md-1 offset-xl-1",
+                "placeholder_classes" => false
+            ],
+            "div.image.between.even" => [
+                "element_class"       => "col-11 col-md-5 col-lg offset-md-1 offset-lg-0",
+                "placeholder_classes" => false
+            ],
+            "div.image.between" => [
+                "element_class"       => "col-11 col-md-5 col-lg",
+                "placeholder_classes" => false
+            ],
+            "div.image.last.even" => [
+                "element_class"       => "col-11 col-md-5 col-lg offset-md-1 offset-lg-0",
+                "placeholder_classes" => [
+                    "d-none d-xl-block col-xl-2",
+                    "w-100"
+                ]
+            ],
+            "div.image.last" => [
+                "element_class"       => "col-11 col-md-5 col-lg",
+                "placeholder_classes" => [
+                    "d-none d-xl-block col-xl-2",
+                    "w-100"
+                ]
+            ]
         ]
     ]
-]);
+];

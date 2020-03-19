@@ -1,0 +1,7 @@
+type:     customPages
+headline: Chapters
+info:     "{{ page.childrenAndDrafts.count }} subchapter(s)"
+create:   chapter
+template:
+  - chapter
+empty:    No Chapters yet
