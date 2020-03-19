@@ -1,19 +1,20 @@
 <?php
     $is_overview = $page->is("overview");
+    $parent      = $page->parent() ? $page->parent() : site();
 
     // set brandLink. If there is more than one documentation link to overview page,
     // else to first chapter of current documentation
     $brandLink = "";
-    if($is_overview == false && site()->hasVisibleChildren() > 1 || site()->hasVisibleChildren() == 0) {
+    if($is_overview == false && site()->children()->listed()->count() > 1 || site()->children()->listed()->count() == 0) {
         $brandLink = $site->page("overview")->url();
-    } else if($is_overview == false && $page->parent()->children()->visible()->first()) {
-        $brandLink = $page->parent()->children()->visible()->first()->url();
+    } else if($is_overview == false && $parent->children()->listed()->first()) {
+        $brandLink = $parent->children()->listed()->first()->url();
     }
 ?>
 
 <nav id="navbar" class="navbar navbar-expand-xl navbar-light shadow-sm bg-white p-3">
     <div class="w-100 d-flex align-items-center justify-content-between flex-nowrap">
-        <a class="navbar-brand d-flex align-items-center text-dark text-truncate" href="<?= $brandLink ?>">
+        <a class="navbar-brand btn-link d-flex align-items-center text-dark text-truncate" href="<?= $brandLink ?>">
             <?php if($is_overview == false): ?>
                 <div class="arrow-back mb-0 ml-md-3">
                     <?= file_get_contents(kirby()->roots()->assets() . "/images/ios-arrow-back.svg"); ?>
@@ -21,8 +22,8 @@
             <?php endif ?>
             <h5 class="ml-3 mb-0 text-truncate">
                 <?php if($is_overview == false): ?>
-                <?= $page->parent()->title()->html() ?><br>
-                <small class="text-muted"><?= $page->parent()->course()->html() ?></small>
+                <?= $parent->title()->html() ?><br>
+                <small class="text-muted"><?= $parent->course()->html() ?></small>
                 <?php else: ?>
                 <?= $page->title()->html() ?><br>
                 <?php endif ?>

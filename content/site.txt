@@ -2,4 +2,4 @@ Title: HfG Documentation Generator
 
 ----
 
-Version: 1.0.0
+Version: 4.0.0

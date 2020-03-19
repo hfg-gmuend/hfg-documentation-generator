@@ -1,0 +1,30 @@
+title: Editor
+
+description:
+  de: Können eigene Dokumentationen erstellen und diese bearbeiten.
+  en: Can create and edit their own documentations.
+
+fields:
+  firstName:
+    label: First name
+    icon:  account
+    type:  text
+    width: 1/2
+
+  lastName:
+    label: Last name
+    icon:  account
+    type:  text
+    width: 1/2
+
+  website:
+    label: Website
+    type:  url
+    width: 1/2
+
+permissions:
+  access:
+    settings: false
+  users: false
+  user:
+    changePassword: false

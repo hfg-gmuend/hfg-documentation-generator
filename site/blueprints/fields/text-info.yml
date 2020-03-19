@@ -1,0 +1,8 @@
+label: Block Elements
+type:  info
+text: >
+  **Important Text**
+
+  \(important)<br/>
+  Lorem ipsum dolor sit amet...<br/>
+  (endimportant)

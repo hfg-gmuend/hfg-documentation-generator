@@ -1,0 +1,23 @@
+title: Chapter
+
+options:
+  changeTemplate:
+    - chapter
+
+columns:
+  - width: 1/3
+      sections:
+        chapters: sections/chapters
+        files:    sections/files
+
+  - width: 2/3
+      fields:
+        text:
+          label: Text
+          type:  textarea
+
+        text_info:
+          extends: fields/text-info
+
+        tag_info:
+          extends: fields/tag-info

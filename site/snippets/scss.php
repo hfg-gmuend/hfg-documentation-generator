@@ -49,7 +49,7 @@ if (!file_exists($indexCSS)) {
 }
 
 // For when the plugin should check if partials are changed. If any partial is newer than the main SCSS file, the main SCSS file will be "touched". This will trigger the compiler later on, on this server and also on another environment when synced.
-if (c::get("scssNestedCheck")) {
+if (option("scssNestedCheck")) {
     $SCSSDirectory = $root . "/assets/scss/partials";
     $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($SCSSDirectory));
     foreach ($files as $file) {
@@ -99,7 +99,7 @@ $indexSCSSFileTime = filemtime($indexSCSS);
 $indexCSSFileTime = filemtime($indexCSS);
 
 // Update index CSS when needed and scssCompile is activated.
-if ((!file_exists($indexCSS) or $indexSCSSFileTime > $indexCSSFileTime) && c::get("scssCompile", false)) {
+if ((!file_exists($indexCSS) or $indexSCSSFileTime > $indexCSSFileTime) && option("scssCompile", false)) {
 
     // Activate library.
     require_once $root . "/site/plugins/scssphp/scss.inc.php";

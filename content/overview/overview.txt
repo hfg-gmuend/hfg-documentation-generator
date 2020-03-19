@@ -2,6 +2,14 @@ Title: Overview
 
 ----
 
+Coursetitle: Social Design
+
+----
+
+Allowedit: true
+
+----
+
 Major: Strategische Gestaltung
 
 ----
@@ -14,7 +22,7 @@ Supervisors: Prof. Benedikt Groß
 
 ----
 
-Text: 
+Text:
 
 Auch im Bereich der gemeinnützigen sozialen Dienstleistungen (zum Beispiel Altenpflege, Behindertenhilfe, Jugend- und Kinderhilfe, etc.) hat der digitale Wandel erhebliche Folgen auf Vermittlung von Angeboten, Steuerung der Nachfrage und Platzierung am Markt. Die Zielgruppen (Angehörige, Pflegepersonal, Beschäftigte in den Hilfeeinrichtungen, Kunden) sind mittlerweile an die Nutzung digitaler Kanäle gewohnt und erwarten auch in diesem Dienstleistungssektor zeitgemäße Angebote. Wie können digitale Produkte den Dienst am Menschen sinnvoll unterstützen?
 
@@ -25,7 +33,3 @@ In einem Semesterprojekt im Wintersemester 2018/19 an der HfG Schwäbisch Gmünd
 Partner: Nikolauspflege, Paulinenpflege (Winnenden), eva Evangelische Gesellschaft (Stuttgart), Die Zieglerschen und VeDiSo / Verband für Digitalisierung in der Sozialwirtschaft
 
 Für das Semesterprojekt stellen sich Unternehmen/Organisationen aus der Sozialwirtschaft als Kooperationspartner zur Verfügung. Ein/e Repräsentant/in des jeweiligen Partners ist an der Auftaktveranstaltung dabei und am Ende des Semesters bei der Endpräsentation. Während des Seminars haben die Studierenden die Möglichkeit, in der sozialen Einrichtung Mitarbeiter zu befragen und Hintergrundinformationen zu sammeln. Vorteil für die beteiligten sozialen Einrichtungen ist der Input aus der Gruppe der Studierenden und der Referenten heraus, die sich im Seminar intensiv mit Fragestellungen von Design und Sozialwirtschaft befassen werden und auf die Bedarfe der jeweiligen Organisation gezielt eingehen. Dies kann in konkrete Projekte münden, kann aber auch einfach nur ein Impuls für weitere Prozesse sein. Sollte eines der Konzepte für eine Umsetzung interessant sein, besteht für die Einrichtung die Möglichkeit im Anschluss an das Seminar dazu mit der Hochschule und den beteiligten Studierenden weitere Schritte zu veranlassen.
-
-----
-
-Coursetitle: Social Design

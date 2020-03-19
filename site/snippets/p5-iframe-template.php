@@ -1,4 +1,4 @@
-<?php $file_exists = f::exists(str_replace($site->url(), $kirby->roots()->index, $url)) ?>
+<?php $file_exists = f::exists(str_replace(site()->url(), kirby()->roots()->index, $url)) ?>
 <html>
 <head>
     <meta charset="UTF-8">
