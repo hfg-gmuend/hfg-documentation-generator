@@ -74,6 +74,12 @@
     ],
 
 
+    //------------ Markdown ------------
+    "markdown" => [
+        "extra" => true
+    ],
+
+
     //------------ Columnify Plugin ------------
     "columnify" => [
         "default" => [

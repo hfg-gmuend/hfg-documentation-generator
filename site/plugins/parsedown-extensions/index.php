@@ -160,17 +160,17 @@ class ParsedownExtended extends Parsedown {
 
 class MarkdownExtended extends Kirby\Text\Markdown {
     public function parse(string $markdown, bool $inline = false): string {
-        if(option("markdown")) {
-            return $markdown;
+        // initialize the right markdown class
+        $parsedown = option("markdown.extra") ? new ParsedownExtendedExtra() : new ParsedownExtended();
+
+        // set markdown auto-breaks
+        $parsedown->setBreaksEnabled(option("markdown.breaks"));
+
+        // parse it!
+        if ($inline === true) {
+            return @$parsedown->line($markdown);
         } else {
-            // initialize the right markdown class
-            $parsedown = option("markdown.extra") ? new ParsedownExtendedExtra() : new ParsedownExtended();
-
-            // set markdown auto-breaks
-            $parsedown->setBreaksEnabled(true);
-
-            // parse it!
-            return $parsedown->text($markdown);
+            return @$parsedown->text($markdown);
         }
     }
 }
