@@ -16,6 +16,9 @@ function checkHfGMailbox($email, $password) {
             return true;
         }
     } catch(Exception $e) {
+        // silence errors and alerts
+        imap_errors();
+        imap_alerts();
     }
 
     return false;
