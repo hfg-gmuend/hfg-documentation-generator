@@ -30,7 +30,13 @@
                     <?= page("overview")->course()->html() ?>
                 </p>
                 <p class="mb-0">
-                    <?= $page->parent()->major()->html() . $page->parent()->semester()->html() ?>
+                    <?php
+                    $classes = [];
+                    foreach(page("overview")->classes()->split() as $class) {
+                      array_push($classes, $class);
+                    }
+                    echo implode(", ", $classes);
+                    ?>
                 </p>
             </div>
             <br>

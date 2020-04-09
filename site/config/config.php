@@ -54,6 +54,16 @@
     ],
 
 
+    //------------ Panel Semesters Tag ------------
+    "departmentLongName" => [
+        "KG" => "Kommunikationsgestaltung",
+        "IG" => "Interaktionsgestaltung",
+        "PG" => "Produktgestaltung",
+        "IoT" => "Internet der Dinge",
+        "SG" => "Strategische Gestaltung",
+    ],
+
+
     //------------ Custom File DragTexts ------------
     // List of elements for which the dragText should be customized
     // key   -> file extension or kirby defined file type NOTE: file extension gets checked before file type

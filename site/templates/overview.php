@@ -4,8 +4,44 @@
             <a name="s-jump"></a>
   <div id="row" class="row my-4 flex-column-reverse flex-md-row">
       <div class="col-11 col-sm-11 col-md-6 offset-md-1 col-lg-7 offset-lg-1 col-xl-6 offset-xl-1">
-          <h2 class="d-none d-sm-block "><?= $page->major() ?>  – <?= $page->course() ?></h2>
-          <h1 class="d-none d-sm-block "><?= $page->courseTitle() ?></h1>
+          <h2 class="d-none d-sm-block ">
+            <?php
+            // Make long names from classes tags. E.g. [KG3, IG2, KG4] will be transformed to 
+            // "Kommunikationsgestaltung 3+4, Interaktionsgestaltung 2"
+            $classes = [];
+            foreach($page->classes()->split() as $class) {
+                // Split e.g. "IG2" into department "IG" and classNumber "2"
+                $department = substr($class, 0, -1);
+                $classNumber = substr($class, -1);
+                // Store everything in a dictionary, e.g. {KG:[3,4], IG:[2]}
+                if (array_key_exists($department, $classes)) {
+                    $classes[$department][] = $classNumber;
+                } else {
+                    $classes[$department] = [];
+                    $classes[$department][] = $classNumber;
+                }
+            }
+
+            // Go through that dictionary and build a string of it
+            $result = "";
+            foreach ($classes as $department => $classNumbers) {
+                // Look up long names of the departments given in config.php
+                $departmentLongName = option("departmentLongName.{$department}");
+                $result = "{$result}{$departmentLongName} ";
+                // asort($classNumbers);
+                foreach ($classNumbers as $classNumber) {
+                    $result = "{$result}{$classNumber}+";
+                }
+                $result = substr($result, 0, -1);
+                $result = "{$result}, ";
+            }
+            
+            $result = substr($result, 0, -2);
+            echo $result;
+            ?>
+            – <?= $page->course() ?>
+          </h2>
+          <h1 class="d-none d-sm-block "><?= $page->courseSubject() ?></h1>
       </div>
 
       <div id="meta" class="col-11 col-md-3 col-lg-2 offset-md-1 pull-right">
