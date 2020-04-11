@@ -106,6 +106,10 @@
                 "placeholder_classes" => "d-none d-md-block col-md-1 col-lg-2 col-xl-4"
             ],
             "p",
+            "h1",
+            "h2",
+            "h3",
+            "h4",
             "hr",
             "ul",
             "ol",
