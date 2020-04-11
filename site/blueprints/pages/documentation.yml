@@ -15,21 +15,23 @@ columns:
           query:    kirby.users.filterBy("role", "editor")
 
         description:
-          label: Description
-          type:  textarea
+          label:    Description
+          type:     textarea
+          required: true
 
         coverImage:
           label:    Cover Image
           type:     files
           query:    page.images
           multiple: false
+          help:     Don't forget to add a cover image here otherwise your documentation will look ugly on the overview page.
 
         line:
-          label: Cheatsheet
-          type:  line
+          label:    Cheatsheet
+          type:     line
 
         textInfo:
-          extends: fields/text-info
+          extends:  fields/text-info
 
         tagInfo:
-          extends: fields/tag-info
+          extends:  fields/tag-info
