@@ -35,3 +35,7 @@ Icon
 # License
 # ---------------
 /site/config/.license
+
+# Auth
+# ---------------
+/site/config/google-ouauth.php

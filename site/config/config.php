@@ -1,4 +1,8 @@
 <?php
+
+@include __DIR__ . DS . 'google-ouauth.php';
+
+
 /**
  * The config file is optional. It accepts a return array with config options
  * Note: Never include more than one return statement, all options go within this single return array
