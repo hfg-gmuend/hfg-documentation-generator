@@ -92,7 +92,7 @@ Kirby::plugin("tags/image", [
                             ],
                             [
                                 "class" => "img-wrapper",
-                                "style" => "padding-bottom: " . $file->height() / $file->width() * 100 . "%"
+                                "style" => "padding-bottom: " . number_format($file->height() / $file->width() * 100, 10, '.', '') . "%"
                             ]
                         );
                     }
