@@ -39,3 +39,6 @@ fields:
   text:
     label:    Briefing
     type:     textarea
+
+  staticSiteGenerator:
+    label: Generate a static version of the site

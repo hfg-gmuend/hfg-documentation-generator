@@ -8,6 +8,13 @@ return [
     "cache" => false,
 
     //------------ Scss Plugin ------------
-    "scssCompile"     => true,
+    "scssCompile" => true,
     "scssNestedCheck" => true,
+    "d4l" => [
+        "static_site_generator" => [
+            "endpoint" => "static",
+            "output_folder" => "./static",
+            "base_url" => "/",
+        ],
+    ]
 ];
