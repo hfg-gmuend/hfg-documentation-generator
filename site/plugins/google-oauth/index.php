@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+require_once 'vendor/autoload.php';
 
 Kirby::plugin("k3/google-oauth", [
 
@@ -25,7 +25,7 @@ Kirby::plugin("k3/google-oauth", [
             "auth" => false,
             "action" => function () {
 
-                $_COOKIE['instance'] = kirby()->site()->url();
+                setcookie('instance', kirby()->site()->url(), time() + (60*10), "/");
                
                 go('https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id='.kirby()->option('client_id').'&redirect_uri='.kirby()->option('redirect_uri'));
                 
@@ -50,6 +50,9 @@ Kirby::plugin("k3/google-oauth", [
 
 function loginUser($googleIdToken)
 {
+    deleteCookie("googleAccessToken");
+    deleteCookie("googleIdToken");
+    
     //Verify and decode id token
     $CLIENT_ID = "914414992322-db2h9cuc69dhmfor6vrk6hblnrakucnn.apps.googleusercontent.com";
 
@@ -59,20 +62,9 @@ function loginUser($googleIdToken)
         $userid = $payload['sub'];
         $email = $payload['email'];
         $verifiedEmail = $payload['email_verified'];
-        print_r($payload);
     } else {
         die("Invalid token");
     }
-
-    // START Previous code for reference
-    // $vars = ['email', 'verifiedEmail', 'hd'];
-
-    // $oauthUserData = (array) $oauthUser; //<---- TODO
-
-    // foreach ($vars as $var) {
-    //     $$var = isset($oauthUserData[$var]) ? $oauthUserData[$var] : null;
-    // }
-    // END Previous code for reference
 
     if (!$email) {
         $this->error("E-mail address missing missing!");
@@ -83,6 +75,7 @@ function loginUser($googleIdToken)
     }
 
     if (!$kirbyUser = kirby()->user($email)) {
+        print_r("hallo");
         kirby()->impersonate('kirby');
         $kirbyUser = kirby()->users()->create([
             'email' => $email,
@@ -91,5 +84,14 @@ function loginUser($googleIdToken)
     }
 
     $kirbyUser->loginPasswordless();
+
     go('panel');
+    print_r($kirbyUser);
+}
+
+function deleteCookie($cookieName) {
+    if (isset($_COOKIE[$cookieName])) {
+        unset($_COOKIE[$cookieName]);
+        setcookie($cookieName, '', time() - 3600, '/'); // empty value and old timestamp
+    }
 }
