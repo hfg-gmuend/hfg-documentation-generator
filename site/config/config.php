@@ -15,7 +15,7 @@ return [
     "home" => "overview",
     
     //------------ Instance URL from env ------------
-    "url" => $_ENV['KIRBY_URL']
+    "url" => $_ENV['KIRBY_URL'],
     
     //------------ Max Page Depth ------------
     // e.g when set to 3:
