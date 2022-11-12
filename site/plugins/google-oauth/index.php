@@ -75,7 +75,6 @@ function loginUser($googleIdToken)
     }
 
     if (!$kirbyUser = kirby()->user($email)) {
-        print_r("hallo");
         kirby()->impersonate('kirby');
         $kirbyUser = kirby()->users()->create([
             'email' => $email,
