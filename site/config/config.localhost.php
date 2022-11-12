@@ -12,8 +12,8 @@ return [
     "scssNestedCheck" => true,
     "d4l" => [
         "static_site_generator" => [
-            "endpoint" => "static",
-            "output_folder" => "./static",
+            "endpoint" => "export-static",
+            "output_folder" => "./ssgexport",
             "base_url" => "/",
         ],
     ]
