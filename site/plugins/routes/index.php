@@ -1,7 +1,6 @@
 <?php
 
 namespace D4L;
-
 use Kirby\Cms\App as Kirby;
 
 //------------ Routes ------------
@@ -17,19 +16,20 @@ Kirby::plugin("routes/routes", [
         [
             "pattern" => "/export-static",
             "action" => function () {
+                if (kirby()->visitor()->ip() == "::1" || $_SERVER['HTTP_HOST'] == "localhost") {
+                    $kirby = kirby();
 
-                $kirby = kirby();
+                    $outputFolder = './ssgexport';
+                    $baseUrl = $kirby->option('d4l.static_site_generator.base_url', '/');
+                    $preserve = [];
+                    $pages = $kirby->site()->index();
 
-                $outputFolder = './ssgexport';
-                $baseUrl = $kirby->option('d4l.static_site_generator.base_url', '/');
-                $preserve = [];
-                $pages = $kirby->site()->index();
-
-                $staticSiteGenerator = new StaticSiteGenerator($kirby, null, $pages);
-                $list = $staticSiteGenerator->generate($outputFolder, $baseUrl, $preserve);
-                $count = count($list);
-                return ['success' => true, 'files' => $list, 'message' => "$count files generated / copied"];
-            }
+                    $staticSiteGenerator = new StaticSiteGenerator($kirby, null, $pages);
+                    $list = $staticSiteGenerator->generate($outputFolder, $baseUrl, $preserve);
+                    $count = count($list);
+                    return ['success' => true, 'files' => $list, 'message' => "$count files generated / copied"];
+                }
+            },
         ],
         [
             "pattern" => "^(?!staticbuilder)(:any)",
@@ -43,6 +43,6 @@ Kirby::plugin("routes/routes", [
                     return $page;
                 }
             },
-        ]
-    ]
+        ],
+    ],
 ]);
