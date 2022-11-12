@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+require_once 'vendor/autoload.php';
 
 Kirby::plugin("k3/google-oauth", [
 
@@ -11,7 +11,7 @@ Kirby::plugin("k3/google-oauth", [
             "auth" => false,
             "action" => function () {
 
-                loginUser($_SESSION['googleAccountInfo']);
+                loginUser($_COOKIE['googleIdToken']);
 
                 return [
                     "code" => 200,
@@ -25,7 +25,7 @@ Kirby::plugin("k3/google-oauth", [
             "auth" => false,
             "action" => function () {
 
-                $_SESSION['instance'] = kirby()->site()->url();
+                setcookie('instance', kirby()->site()->url(), time() + (60*10), "/");
                
                 go('https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id='.kirby()->option('client_id').'&redirect_uri='.kirby()->option('redirect_uri'));
                 
@@ -48,14 +48,22 @@ Kirby::plugin("k3/google-oauth", [
     ],
 ]);
 
-function loginUser($oauthUser)
+function loginUser($googleIdToken)
 {
-    $vars = ['email', 'verifiedEmail', 'hd'];
+    deleteCookie("googleAccessToken");
+    deleteCookie("googleIdToken");
+    
+    //Verify and decode id token
+    $CLIENT_ID = "914414992322-db2h9cuc69dhmfor6vrk6hblnrakucnn.apps.googleusercontent.com";
 
-    $oauthUserData = (array) $oauthUser;
-
-    foreach ($vars as $var) {
-        $$var = isset($oauthUserData[$var]) ? $oauthUserData[$var] : null;
+    $client = new Google_Client(['client_id' => $CLIENT_ID]);  // Specify the CLIENT_ID of the app that accesses the backend
+    $payload = $client->verifyIdToken($googleIdToken);
+    if ($payload && $payload['hd'] == "hfg.design" && $payload['aud'] == $CLIENT_ID) {
+        $userid = $payload['sub'];
+        $email = $payload['email'];
+        $verifiedEmail = $payload['email_verified'];
+    } else {
+        die("Invalid token");
     }
 
     if (!$email) {
@@ -75,5 +83,14 @@ function loginUser($oauthUser)
     }
 
     $kirbyUser->loginPasswordless();
+
     go('panel');
+    print_r($kirbyUser);
+}
+
+function deleteCookie($cookieName) {
+    if (isset($_COOKIE[$cookieName])) {
+        unset($_COOKIE[$cookieName]);
+        setcookie($cookieName, '', time() - 3600, '/'); // empty value and old timestamp
+    }
 }
