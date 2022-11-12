@@ -13,7 +13,7 @@ return [
     "d4l" => [
         "static_site_generator" => [
             "endpoint" => "export-static",
-            "output_folder" => "./ssgexport",
+            "output_folder" => "./static",
             "base_url" => "/",
         ],
     ]
