@@ -1,6 +1,5 @@
 <?php
 
-namespace D4L;
 use Kirby\Cms\App as Kirby;
 
 //------------ Routes ------------
@@ -24,7 +23,7 @@ Kirby::plugin("routes/routes", [
                     $preserve = [];
                     $pages = $kirby->site()->index();
 
-                    $staticSiteGenerator = new StaticSiteGenerator($kirby, null, $pages);
+                    $staticSiteGenerator = new D4L\StaticSiteGenerator($kirby, null, $pages);
                     $list = $staticSiteGenerator->generate($outputFolder, $baseUrl, $preserve);
                     $count = count($list);
                     return ['success' => true, 'files' => $list, 'message' => "$count files generated / copied"];
