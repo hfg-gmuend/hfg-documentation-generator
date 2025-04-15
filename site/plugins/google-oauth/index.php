@@ -58,7 +58,7 @@ function loginUser($googleIdToken)
 
     $client = new Google_Client(['client_id' => $CLIENT_ID]);  // Specify the CLIENT_ID of the app that accesses the backend
     $payload = $client->verifyIdToken($googleIdToken);
-    if ($payload && $payload['hd'] == "hfg.design" && $payload['aud'] == $CLIENT_ID) {
+    if ($payload && $payload['hd'] == "hfg-gmuend.de" && $payload['aud'] == $CLIENT_ID) {
         $userid = $payload['sub'];
         $email = $payload['email'];
         $verifiedEmail = $payload['email_verified'];
